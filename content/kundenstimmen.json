@@ -1,0 +1,29 @@
+{
+  "eyebrow": "Kundenstimmen",
+  "ueberschrift": "Das sagen meine Kundinnen und Kunden",
+  "google_review_url": "",
+  "eintraege": [
+    {
+      "name": "Beispiel M.",
+      "kategorie": "Sprachkurs",
+      "text": "Beispiel-Kundenstimme — bitte durch echte ersetzen. Hier könnte stehen, wie geduldig und flexibel der Deutschunterricht war und dass die Fortschritte schnell spürbar wurden.",
+      "anzeigen": false
+    },
+    {
+      "name": "Beispiel A.",
+      "kategorie": "Übersetzung",
+      "text": "Beispiel-Kundenstimme — bitte durch echte ersetzen. Hier könnte stehen, wie zuverlässig und schnell eine wichtige Übersetzung Deutsch–Arabisch erledigt wurde.",
+      "anzeigen": false
+    }
+  ],
+  "referenzen": {
+    "anzeigen": false,
+    "titel": "Vertraut von",
+    "kundentypen": [
+      "Privatpersonen",
+      "Anwaltskanzleien",
+      "Behörden",
+      "Unternehmen"
+    ]
+  }
+}

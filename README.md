@@ -12,10 +12,17 @@ gepflegt werden können. Gehostet mit GitHub Pages unter https://www.targem.ch.
 | Pfad | Inhalt |
 |---|---|
 | `content/` | **Die Inhalte** als einfache Daten-Dateien (`*.json`) — hier steckt der ganze Text |
+| `content/startseite.json` | Startseite inkl. Qualifikations-Badges (`ueber_mich.qualifikationen`) |
+| `content/kundenstimmen.json` | Kundenstimmen (nur mit `anzeigen:true` sichtbar) + Referenzen «Vertraut von …» |
+| `content/faq.json` | Häufige Fragen (FAQ-Akkordeon + FAQPage-Strukturdaten) |
+| `content/einstufungstest.json` | Fragen & Auswertung für den Deutsch-Einstufungstest |
+| `content/rechner.json` | Richtwerte des Übersetzungs-Preisrechners (nur mit `aktiv:true` sichtbar) |
 | `templates/` | HTML-Vorlagen mit Platzhaltern (`index`, `impressum`, `datenschutz`, `404`) |
 | `admin/` | Redaktionssystem **Sveltia CMS** (selbst gehostet) + Konfiguration |
-| `build.mjs` | Baut aus `content/` + `templates/` die fertige Website nach `dist/` |
-| `css/`, `js/`, `assets/` | Stylesheet, minimales JavaScript, Bilder & selbst gehostete Schriften |
+| `build.mjs` | Baut aus `content/` + `templates/` die fertige Website nach `dist/` (inkl. `preisliste.pdf` und `kontakt.vcf`) |
+| `tools/` | Build-Hilfen (kein Laufzeit-JS): `pdf.mjs` (eigener PDF-Writer), `qr.mjs` (QR-Code als SVG), `vendor/` (vendorte MIT-Lib `qrcode-generator`) |
+| `css/`, `js/`, `assets/` | Stylesheet (nur `modern.css`), minimales JavaScript, Bilder & selbst gehostete Schriften |
+| `klassik/` | **Eingefroren** — Snapshot der bisherigen Version, erreichbar unter `/klassik/` (nicht bearbeiten) |
 | `.github/workflows/` | GitHub-Actions-Workflow: baut und veröffentlicht die Seite automatisch |
 | `dist/` | **Generiert** — die fertige Website (nicht eingecheckt, siehe `.gitignore`) |
 | `ANLEITUNG.md` | Anleitung: DNS umstellen, GitHub Pages aktivieren, Wix kündigen |

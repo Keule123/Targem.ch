@@ -1,0 +1,106 @@
+{
+  "aktiv": true,
+  "eyebrow": "Kostenloser Selbsttest",
+  "ueberschrift": "Einstufungstest Deutsch",
+  "lead": "Beantworten Sie zehn kurze Fragen und erhalten Sie eine unverbindliche Einschätzung Ihres Deutsch-Niveaus. Der Test ist eine erste Orientierung und ersetzt kein persönliches Gespräch.",
+  "start_button": "Test starten",
+  "fragen": [
+    {
+      "frage": "Welcher Artikel ist richtig? ___ Sonne scheint.",
+      "optionen": [
+        { "text": "Die", "punkte": 3 },
+        { "text": "Der", "punkte": 0 },
+        { "text": "Das", "punkte": 0 },
+        { "text": "Den", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Ergänzen Sie: Ich ___ aus der Schweiz.",
+      "optionen": [
+        { "text": "bin", "punkte": 3 },
+        { "text": "bist", "punkte": 0 },
+        { "text": "ist", "punkte": 0 },
+        { "text": "sein", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Wie lautet der Plural von «das Kind»?",
+      "optionen": [
+        { "text": "die Kinder", "punkte": 3 },
+        { "text": "die Kind", "punkte": 0 },
+        { "text": "die Kinds", "punkte": 0 },
+        { "text": "die Kindes", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Ergänzen Sie im Perfekt: Gestern ___ ich einen Film gesehen.",
+      "optionen": [
+        { "text": "habe", "punkte": 3 },
+        { "text": "bin", "punkte": 0 },
+        { "text": "war", "punkte": 0 },
+        { "text": "hatte", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Ergänzen Sie: Ich fahre ___ dem Bus zur Arbeit.",
+      "optionen": [
+        { "text": "mit", "punkte": 3 },
+        { "text": "für", "punkte": 0 },
+        { "text": "ohne", "punkte": 0 },
+        { "text": "durch", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Welcher Satz ist grammatikalisch richtig?",
+      "optionen": [
+        { "text": "Ich bleibe zu Hause, weil ich krank bin.", "punkte": 3 },
+        { "text": "Ich bleibe zu Hause, weil ich bin krank.", "punkte": 0 },
+        { "text": "Ich bleibe zu Hause, weil bin ich krank.", "punkte": 0 },
+        { "text": "Ich bleibe zu Hause, weil krank ich bin.", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Ergänzen Sie im Genitiv: Das ist das Auto ___ Nachbarn.",
+      "optionen": [
+        { "text": "des", "punkte": 3 },
+        { "text": "dem", "punkte": 0 },
+        { "text": "der", "punkte": 0 },
+        { "text": "den", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Ergänzen Sie im Passiv: Das Haus ___ letztes Jahr gebaut.",
+      "optionen": [
+        { "text": "wurde", "punkte": 3 },
+        { "text": "hat", "punkte": 0 },
+        { "text": "ist geworden", "punkte": 0 },
+        { "text": "war gebaut", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Ergänzen Sie im Konjunktiv II: Wenn ich mehr Zeit ___, würde ich mehr reisen.",
+      "optionen": [
+        { "text": "hätte", "punkte": 3 },
+        { "text": "habe", "punkte": 0 },
+        { "text": "hatte", "punkte": 0 },
+        { "text": "haben würde", "punkte": 0 }
+      ]
+    },
+    {
+      "frage": "Welches Wort passt am besten? ___ des schlechten Wetters fand das Fest statt.",
+      "optionen": [
+        { "text": "Trotz", "punkte": 3 },
+        { "text": "Wegen", "punkte": 0 },
+        { "text": "Während", "punkte": 0 },
+        { "text": "Anstatt", "punkte": 0 }
+      ]
+    }
+  ],
+  "stufen": [
+    { "bis_punkte": 6, "niveau": "A1", "empfehlung": "Sie stehen am Anfang – ideal für einen Einsteigerkurs, in dem wir gemeinsam die Grundlagen aufbauen. Melden Sie sich für eine kostenlose Probelektion." },
+    { "bis_punkte": 12, "niveau": "A2", "empfehlung": "Sie haben solide Grundkenntnisse. Mit gezieltem Training bauen wir Ihren Wortschatz und Ihre Sicherheit im Alltag weiter aus." },
+    { "bis_punkte": 18, "niveau": "B1", "empfehlung": "Sie kommen in vielen Situationen gut zurecht. Jetzt geht es darum, komplexere Strukturen und freies Sprechen zu festigen." },
+    { "bis_punkte": 24, "niveau": "B2", "empfehlung": "Sie sprechen bereits fortgeschritten. Wir feilen an Feinheiten, Ausdruck und Textkompetenz für Beruf oder Studium." },
+    { "bis_punkte": 30, "niveau": "C1", "empfehlung": "Sehr stark! Auf diesem Niveau vertiefen wir Stil, Nuancen und anspruchsvolle Themen ganz nach Ihren Zielen." }
+  ]
+}
