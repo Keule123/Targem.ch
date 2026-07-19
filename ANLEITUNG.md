@@ -16,7 +16,7 @@ gefahrlos rückgängig gemacht werden.
 | Domain targem.ch | **Hostpoint AG** (Schweizer Registrar, seit 16.02.2021) | ✅ Kein Domain-Transfer nötig — die Domain gehört nicht Wix! |
 | DNS-Server | ns12/ns13.wixdns.net (**Wix**) | Muss auf Hostpoint-DNS umgestellt werden |
 | Website | Wix (185.230.63.x) | Wird durch GitHub Pages ersetzt |
-| E-Mail info@targem.ch | **Google Workspace** (MX: aspmx.l.google.com) | ⚠️ Vor der Kündigung prüfen, ob das Google-Abo über Wix bezahlt wird! |
+| E-Mail info@targem.ch | ~~Google Workspace via Wix~~ — **Abo abgelaufen, Konto gesperrt** | Wird NEU bei **Hostpoint** eingerichtet (Schritt 3b); alte Mails sind verloren (bewusste Entscheidung vom 19.07.2026) |
 
 ---
 
@@ -56,41 +56,66 @@ Domain registriert ist.
    | A | `targem.ch` (Apex/@) | `185.199.110.153` |
    | A | `targem.ch` (Apex/@) | `185.199.111.153` |
    | CNAME | `www` | `keule123.github.io.` |
-   | MX | `targem.ch` | `10 aspmx.l.google.com.` |
-   | MX | `targem.ch` | `20 alt1.aspmx.l.google.com.` |
-   | MX | `targem.ch` | `30 alt2.aspmx.l.google.com.` |
-   | MX | `targem.ch` | `40 alt3.aspmx.l.google.com.` |
-   | MX | `targem.ch` | `50 alt4.aspmx.l.google.com.` |
-   | TXT | `targem.ch` | `google-site-verification=IMjupHlFvfbBUo45X3sRYYG2HQPZfqT6OBCLiMC14iE` |
+   | MX | `targem.ch` | `10 mx1.mail.hostpoint.ch.` |
+   | MX | `targem.ch` | `10 mx2.mail.hostpoint.ch.` |
+   | TXT | `targem.ch` | `v=spf1 redirect=spf.mail.hostpoint.ch` |
 
-   ⚠️ **Die MX- und TXT-Einträge sind Pflicht** — sie sorgen dafür, dass die
-   E-Mail info@targem.ch weiter bei Google ankommt. Sie sind oben exakt so
-   aufgeführt, wie sie aktuell bei Wix gesetzt sind (Stand 19.07.2026).
+   ✉️ **E-Mail-Update (19.07.2026):** Das alte Google-Workspace-Postfach (über
+   Wix gebucht) ist abgelaufen — die E-Mail wird neu bei **Hostpoint**
+   eingerichtet (siehe Schritt 3b). Die MX-/SPF-Einträge oben zeigen deshalb
+   auf die Hostpoint-Mailserver. Alte Google-Einträge (`aspmx.l.google.com` usw.)
+   und der `google-site-verification`-TXT können gelöscht werden.
+   Tipp: In der DNS-Verwaltung gibt es dafür auch die Autokonfiguration
+   **«DNS-Einstellungen auf Hostpoint-Mailserver zurücksetzen»** — die setzt
+   MX/SPF automatisch korrekt (die A-/CNAME-Einträge für die Website dabei
+   stehen lassen!).
 3. DNS-Änderungen brauchen bis zu einigen Stunden. Danach in GitHub
    **Settings → Pages** prüfen: die Domain-Warnung ist weg → Haken bei
    **„Enforce HTTPS"** setzen (GitHub stellt automatisch ein Gratis-Zertifikat aus).
+
+## Schritt 3b: E-Mail-Postfach bei Hostpoint einrichten
+
+Das Google-Workspace-Abo (über Wix) ist abgelaufen und wird bewusst NICHT
+verlängert — die alten E-Mails sind damit verloren, das Postfach wird bei
+Hostpoint neu aufgebaut (Schweizer Server, ab ca. CHF 3/Monat):
+
+1. Im [Hostpoint Control Panel](https://admin.hostpoint.ch): Produkt
+   **„E-Mail"** für die Domain targem.ch bestellen (E-Mail & Office,
+   kleinstes Paket reicht: 1 Postfach, 15 GB).
+2. Postfach **info@targem.ch** anlegen — das Passwort wird dabei selbst
+   gewählt (Sally wählt es und bewahrt es im Passwort-Manager auf; kein
+   zugesandtes Passwort nötig).
+3. Lesen & Schreiben: per Browser über **webmail.hostpoint.ch** oder in der
+   Mail-App auf Handy/Computer (Hostpoint zeigt die Einstellungen beim
+   Anlegen des Postfachs an; Autokonfiguration funktioniert in den meisten
+   Apps automatisch).
+4. Falls die Mail-Einrichtung VOR der Nameserver-Umstellung (Schritt 3)
+   passiert: erst nach der Umstellung kommen Mails im neuen Postfach an.
 
 ## Schritt 4: Alles testen (vor der Kündigung!)
 
 - https://www.targem.ch öffnet die neue Website (Schloss-Symbol/HTTPS ok)
 - https://targem.ch leitet auf www weiter
-- Eine Test-E-Mail an info@targem.ch schicken → kommt an
+- Eine Test-E-Mail an info@targem.ch schicken → kommt im **Hostpoint-Webmail**
+  an (webmail.hostpoint.ch)
 - Auf dem Handy prüfen (Darstellung, Anruf-/WhatsApp-Buttons)
 
-## Schritt 5: E-Mail-Abo prüfen, dann Wix kündigen
+## Schritt 5: Wix kündigen
 
-1. **Zuerst prüfen:** Im Wix-Konto unter **Abonnements/Subscriptions** nachsehen,
-   ob dort „Google Workspace" (oder „G Suite") als Abo auftaucht.
-   - **Falls ja:** Das E-Mail-Abo läuft über Wix und würde bei einer Konto-Kündigung
-     mit gekündigt! In diesem Fall vor der Wix-Kündigung bei Google eine
-     [Übertragung des Workspace-Abos zu Google Direct](https://support.google.com/a/answer/7643790)
-     durchführen (Google-Support hilft dabei, die Mailbox bleibt erhalten).
-   - **Falls nein** (Abo läuft direkt bei Google): kein Handlungsbedarf.
-2. Erst wenn Schritt 4 vollständig grün ist: das **Wix-Premium-Abo kündigen**
-   (Wix-Konto → Abonnements → Premium-Abo kündigen). Die Domain ist davon nicht
-   betroffen — sie liegt bei Hostpoint.
-3. Das Wix-Konto selbst kann als Gratis-Konto bestehen bleiben (schadet nicht und
-   man behält Zugriff auf die alten Inhalte) oder später gelöscht werden.
+Stand 19.07.2026: Das Google-Workspace-E-Mail-Abo bei Wix ist bereits
+abgelaufen und wird NICHT verlängert (Entscheidung: E-Mail neu bei Hostpoint,
+siehe Schritt 3b). Damit ist die Kündigung einfach:
+
+1. Erst wenn Schritt 4 vollständig grün ist (Website auf targem.ch UND
+   Test-Mail im Hostpoint-Postfach angekommen): das **Wix-Premium-Abo
+   (Website) kündigen** — Wix-Konto → Abonnements → Premium-Abo kündigen.
+   Die Domain ist davon nicht betroffen, sie liegt bei Hostpoint.
+2. Das abgelaufene E-Mail-Abo braucht keine Aktion — einfach ablaufen lassen,
+   NICHT auf „Abo verlängern" klicken.
+3. Bei der Gelegenheit kann die Domain-Verknüpfung im Wix-Dashboard entfernt
+   werden (reine Aufräumarbeit, nach der Nameserver-Umstellung wirkungslos).
+4. Das Wix-Konto selbst kann als Gratis-Konto bestehen bleiben (schadet nicht
+   und man behält Zugriff auf die alten Inhalte) oder später gelöscht werden.
 
 ---
 
