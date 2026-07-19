@@ -46,7 +46,7 @@ Auf der sichtbaren Seite selbst sind keine Stornierungs-/AGB-Texte als Fließtex
 # Kontaktangaben (auf der Seite angezeigt)
 
 - Telefon: +41 77 409 05 53
-- E-Mail: smobasher@gmx.net
+- E-Mail: [private E-Mail entfernt]
 
 # Alle sichtbaren Texte in Dokumentreihenfolge
 
@@ -70,7 +70,7 @@ Auf der sichtbaren Seite selbst sind keine Stornierungs-/AGB-Texte als Fließtex
 18. Weiter (Button)
 19. Kontaktangaben (H2)
 20. +41 77 409 05 53 (Telefon)
-21. smobasher@gmx.net (E-Mail)
+21. [private E-Mail entfernt] (E-Mail)
 22. Dienstleistungsseite: Bookings_Service_Page (versteckter A11y-Text)
 23. ©2024 Targem! (Footer/Copyright)
 24. bottom of page (Sprungmarke, versteckter Skip-Link)

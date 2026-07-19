@@ -63,8 +63,8 @@ Seitentyp: Wix-Bookings-Übersichtsseite ("Serviceliste" / Widget "Bookings", Ka
 # Geschäfts-/Buchungssystem-Einstellungen (aus eingebetteten JSON-Daten)
 
 - Anbieter/Mitarbeiterin: Sally Mobasher (einzige Ressource für alle 3 Services)
-- Geschäftsadresse: Blockweg 8, 3007 Bern, Schweiz (physisch hinterlegt, aber alle Services finden "Online" statt)
-- Kontakt: Telefon +41 77 409 05 53, E-Mail smobasher@gmx.net
+- Geschäftsadresse: [private Adresse entfernt], Schweiz (physisch hinterlegt, aber alle Services finden "Online" statt)
+- Kontakt: Telefon +41 77 409 05 53, E-Mail [private E-Mail entfernt]
 - Zeitzone: Europe/Zurich
 - Sprache/Locale: Deutsch (de), Land CH
 - Zahlungswährung: CHF
