@@ -1,0 +1,64 @@
+{
+  "impressum": {
+    "titel": "Impressum",
+    "abschnitte": [
+      {
+        "ueberschrift": "Angaben gemäss Schweizer Recht",
+        "typ": "adresse",
+        "inhalt": "**Targem!**\nSally Mobasher\nEinzelunternehmen\n3075 Rüfenacht\nSchweiz"
+      },
+      {
+        "ueberschrift": "Kontakt",
+        "typ": "adresse",
+        "inhalt": "E-Mail: [info@targem.ch](mailto:info@targem.ch)\nTelefon: [+41 77 409 05 53](tel:+41774090553)"
+      },
+      {
+        "ueberschrift": "Verantwortlich für den Inhalt",
+        "typ": "text",
+        "inhalt": "Sally Mobasher, Adresse wie oben."
+      },
+      {
+        "ueberschrift": "Haftungsausschluss",
+        "typ": "text",
+        "inhalt": "Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Für Inhalte externer Links (z. B. Instagram) sind ausschliesslich deren Betreiber verantwortlich."
+      }
+    ]
+  },
+  "datenschutz": {
+    "titel": "Datenschutzerklärung",
+    "einleitung": "Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. Ich behandle Ihre Daten vertraulich und entsprechend dem Schweizer Datenschutzgesetz (DSG). Diese Website ist bewusst einfach gehalten und verzichtet auf Cookies, Tracking und Analyse-Dienste.",
+    "abschnitte": [
+      {
+        "ueberschrift": "Verantwortliche Stelle",
+        "typ": "adresse",
+        "inhalt": "**Targem!** – Sally Mobasher\n3075 Rüfenacht, Schweiz\nE-Mail: [info@targem.ch](mailto:info@targem.ch)\nTelefon: [+41 77 409 05 53](tel:+41774090553)"
+      },
+      {
+        "ueberschrift": "Hosting",
+        "typ": "text",
+        "inhalt": "Diese Website wird über **GitHub Pages** gehostet, einen Dienst der GitHub, Inc. (88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). Beim Aufruf der Website werden durch GitHub technisch notwendige Zugriffsdaten in Server-Logfiles erfasst (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, Browsertyp). Diese Verarbeitung dient dem sicheren und stabilen Betrieb der Website. Auf diese Server-Logs habe ich keinen direkten Zugriff. Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub. Da GitHub Daten in den USA verarbeiten kann, kann eine Datenübermittlung ins Ausland stattfinden."
+      },
+      {
+        "ueberschrift": "Cookies, Tracking und Analyse",
+        "typ": "text",
+        "inhalt": "Diese Website setzt **keine Cookies**, verwendet **kein Tracking** und bindet **keine Analyse- oder Statistik-Dienste** (z. B. Google Analytics) ein. Die verwendeten Schriftarten werden lokal von diesem Server geladen; es besteht keine Verbindung zu externen Schrift-Diensten."
+      },
+      {
+        "ueberschrift": "Kontaktaufnahme",
+        "typ": "text",
+        "inhalt": "Wenn Sie mich per E-Mail, Telefon, WhatsApp oder über das Kontaktformular kontaktieren, werden die von Ihnen mitgeteilten Angaben (z. B. Name, E-Mail-Adresse, Ihr Anliegen) ausschliesslich zur Bearbeitung Ihrer Anfrage und für allfällige Anschlussfragen verwendet. Das Kontaktformular sendet keine Daten an diese Website oder an Dritte, sondern öffnet lediglich Ihr eigenes E-Mail-Programm mit einer vorausgefüllten Nachricht. Der Versand erfolgt somit über Ihren eigenen E-Mail-Anbieter. Ich gebe diese Daten nicht ohne Ihre Einwilligung an Dritte weiter und bewahre sie nur so lange auf, wie es für die Bearbeitung erforderlich ist."
+      },
+      {
+        "ueberschrift": "Links zu Drittanbietern",
+        "typ": "text",
+        "inhalt": "Diese Website enthält einen Link zu meinem Instagram-Profil (Instagram / Meta Platforms Ireland Ltd.). Beim Anklicken dieses Links verlassen Sie diese Website; für die Datenverarbeitung auf der Plattform des Drittanbieters ist ausschliesslich dieser verantwortlich. Es findet keine automatische Einbindung von Inhalten dieser Plattform auf dieser Website statt."
+      },
+      {
+        "ueberschrift": "Ihre Rechte",
+        "typ": "text",
+        "inhalt": "Sie haben im Rahmen des Schweizer Datenschutzgesetzes das Recht auf Auskunft über die Sie betreffenden Daten sowie auf Berichtigung oder Löschung. Wenden Sie sich dazu bitte an die oben genannte verantwortliche Stelle."
+      }
+    ],
+    "stand": "Stand: Juli 2026"
+  }
+}

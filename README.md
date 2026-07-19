@@ -3,27 +3,45 @@
 Website von **Targem!** — Sprachkurse (Deutsch, Arabisch, Ägyptisch-Arabisch),
 Übersetzungen, Korrekturlesen und Dolmetschen von Sally Mobasher, Rüfenacht (BE), Schweiz.
 
-Statische Website ohne Baukasten und ohne Abhängigkeiten — abgelöst von Wix.
-Gehostet mit GitHub Pages unter https://www.targem.ch.
+Statische Website mit kleinem Build-Schritt (Node, ohne npm-Abhängigkeiten) und
+einem Redaktionssystem (CMS), damit die Inhalte ohne Programmierkenntnisse
+gepflegt werden können. Gehostet mit GitHub Pages unter https://www.targem.ch.
 
 ## Struktur
 
 | Pfad | Inhalt |
 |---|---|
-| `index.html` | Die Website (Einseiter mit Anker-Navigation) |
-| `impressum.html`, `datenschutz.html` | Rechtsseiten |
+| `content/` | **Die Inhalte** als einfache Daten-Dateien (`*.json`) — hier steckt der ganze Text |
+| `templates/` | HTML-Vorlagen mit Platzhaltern (`index`, `impressum`, `datenschutz`, `404`) |
+| `admin/` | Redaktionssystem **Sveltia CMS** (selbst gehostet) + Konfiguration |
+| `build.mjs` | Baut aus `content/` + `templates/` die fertige Website nach `dist/` |
 | `css/`, `js/`, `assets/` | Stylesheet, minimales JavaScript, Bilder & selbst gehostete Schriften |
-| `ANLEITUNG.md` | **Schritt-für-Schritt-Anleitung**: DNS umstellen, GitHub Pages aktivieren, Wix kündigen |
+| `.github/workflows/` | GitHub-Actions-Workflow: baut und veröffentlicht die Seite automatisch |
+| `dist/` | **Generiert** — die fertige Website (nicht eingecheckt, siehe `.gitignore`) |
+| `ANLEITUNG.md` | Anleitung: DNS umstellen, GitHub Pages aktivieren, Wix kündigen |
+| `ADMIN-ANLEITUNG.md` | Anleitung für die Inhaberin: Inhalte im CMS selbst pflegen |
 | `archiv/wix-inhalte/` | Gesicherte Inhalte der alten Wix-Website (Volltexte, Bild-URLs) |
+
+## Inhalte pflegen (ohne Technik)
+
+Über das Admin-Panel **https://www.targem.ch/admin/** anmelden (mit GitHub) und
+Texte, Angebote, Preise oder Neuigkeiten ändern. Beim Speichern wird die Änderung
+automatisch übernommen und ist nach 1–2 Minuten live. Details in `ADMIN-ANLEITUNG.md`.
 
 ## Lokal ansehen
 
 ```bash
-python3 -m http.server 8000
+node build.mjs && python3 -m http.server -d dist 8000
 # dann http://localhost:8000 öffnen
 ```
 
-## Website ändern
+`node build.mjs` liest `content/*.json` und `templates/*.html` und schreibt die
+fertige Website nach `dist/` (inkl. `sitemap.xml`, `robots.txt` und Kopien von
+`css/`, `js/`, `assets/`, `admin/`). Es sind **keine** `npm install`-Schritte nötig.
 
-Text in `index.html` anpassen (direkt auf GitHub möglich: Datei → Stift-Symbol →
-ändern → Commit). Änderungen sind nach 1–2 Minuten live.
+## Wie das Veröffentlichen funktioniert
+
+1. Inhalt im CMS speichern → Commit in den Branch `main`.
+2. GitHub Actions (`.github/workflows/deploy.yml`) startet automatisch, führt
+   `node build.mjs` aus und lädt `dist/` zu GitHub Pages hoch.
+3. Nach 1–2 Minuten ist die Änderung unter https://www.targem.ch live.

@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "ueberschrift": "Willkommen bei Targem!",
+    "tagline": "Qualität, Zuverlässigkeit und Vertraulichkeit",
+    "usp": [
+      "Bei Targem biete ich Ihnen nicht nur professionelle und authentische Übersetzungen, sondern auch Sprachkurse und jegliche Hilfestellungen sprachlicher Natur an.",
+      "Keine langen Wartezeiten: Sie erhalten zeitnah ein Angebot bzw. eine Antwort auf Ihr Anliegen.",
+      "Flexibilität: In dringenden Fällen sind auch Eilübersetzungen übers Wochenende und an Feiertagen möglich."
+    ],
+    "button_kontakt": "Kontakt aufnehmen",
+    "button_angebote": "Angebote ansehen"
+  },
+  "ueber_mich": {
+    "eyebrow": "Über mich",
+    "ueberschrift": "Sprachen sind meine Leidenschaft",
+    "name": "Sally Mobasher",
+    "text": "Sprachen sind meine grosse Leidenschaft, deshalb habe ich sie zu meinem Beruf gemacht. Ich hatte das Privileg zwischen zwei Kulturen aufzuwachsen: der Deutschen Kultur und der Ägyptischen Kultur. Somit habe ich beide Sprachen in ihrem jeweiligen Umfeld und auch in der Familie erlernt.\n\nDies habe ich mit einem Germanistikstudium an der Kairoer Universität und einem Übersetzungsdiplom der Universität Leipzig untermauert. Der Erwerb eines Diploms des Goetheinstituts, gab mir die pädagogischen Grundlagen um beide Sprachen weiterzugeben.\n\nIn den letzten 20 Jahren habe ich mich mit Übersetzen / Dolmetschen und dem Weitergeben der Deutschen, Arabischen und der Ägyptisch-Arabischen Sprache befasst.",
+    "bild": "assets/img/sally-mobasher.jpg"
+  },
+  "sprachkurse": {
+    "eyebrow": "Sprachkurse",
+    "ueberschrift": "Sprachkurse – privat und in Gruppen",
+    "lead": "Seit Jahren biete ich Sprachkurse auf Deutsch, Arabisch und Ägyptisch-Arabisch an.",
+    "text": "Jeder Mensch versteht und lernt anders. Ich gehe auf Ihre Bedürfnisse ein und gebe nicht locker, bis Sie alles verstanden haben, das für Sie wichtig ist. Für mich ist Unterrichten nicht nur meine Arbeit, sondern auch meine Leidenschaft! Mit viel Geduld vermittle ich Ihnen Schritt für Schritt die Sprache, die Sie gerne lernen möchten.\n\nJe nach Gruppengrösse biete ich unterschiedliche Preise an. Der erste Probekurs ist sogar kostenlos!",
+    "preise_eyebrow": "Preise",
+    "preise_ueberschrift": "Kurse & Preise auf einen Blick",
+    "preise_lead": "Alle Lektionen dauern 50 Minuten und finden online per Zoom o. Ä. statt.",
+    "probe_hinweis": "Erste Probelektion kostenlos!",
+    "pakete_ueberschrift": "Sparpakete für den Privatunterricht"
+  },
+  "uebersetzungen": {
+    "eyebrow": "Sprachdienstleistungen",
+    "ueberschrift": "Übersetzungen, Korrekturlesen und Dolmetschen",
+    "lead": "Schnell und unkompliziert können Sie bei mir folgende Dienstleistungen auf Deutsch und Arabisch in Anspruch nehmen. Mit über 30 Jahren Erfahrung im Sprachberuf und meiner Erfahrung im interkulturellen Dolmetschen, werde ich Sie gerne in Ihrem Anliegen unterstützen:",
+    "leistungen": [
+      {
+        "icon": "uebersetzung",
+        "titel": "Übersetzungen",
+        "beschreibung": "Professionelle und authentische Übersetzungen zwischen Deutsch und Arabisch."
+      },
+      {
+        "icon": "korrektur",
+        "titel": "Korrekturlesen",
+        "beschreibung": "Lektorat und Korrektorat – für Texte, die sprachlich überzeugen."
+      },
+      {
+        "icon": "dolmetschen",
+        "titel": "Dolmetschen",
+        "beschreibung": "Dolmetschaufträge, auch im interkulturellen Kontext."
+      }
+    ]
+  },
+  "aktuell": {
+    "eyebrow": "Aktuell",
+    "ueberschrift": "Aktuelles von Targem!"
+  },
+  "kontakt": {
+    "eyebrow": "Kontakt",
+    "ueberschrift": "Kontakt aufnehmen",
+    "lead": "Sind Sie interessiert oder haben sonstige Fragen und Anregungen? Dann kontaktieren Sie mich doch über dieses Formular und ich werde innerhalb von 24 Stunden auf Sie zurückkommen.",
+    "direkt_text": "Am schnellsten erreichen Sie mich direkt:"
+  }
+}

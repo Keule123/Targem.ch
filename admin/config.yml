@@ -1,0 +1,295 @@
+# -------------------------------------------------------------------
+# Sveltia CMS – Konfiguration für targem.ch
+#
+# Login: über GitHub. Sveltia unterstützt die Anmeldung mit einem
+# persönlichen GitHub-Zugriffstoken (Personal Access Token) – es wird
+# KEIN OAuth-Server / Backend-Proxy benötigt.
+#
+# Nach dem Speichern committet das CMS direkt in den Branch "main".
+# Der GitHub-Actions-Workflow baut die Seite dann automatisch neu.
+# -------------------------------------------------------------------
+
+backend:
+  name: github
+  repo: Keule123/Targem.ch
+  branch: main
+
+# Sprache der Bedienoberfläche
+locale: de
+
+# Wohin hochgeladene Bilder gespeichert werden
+media_folder: "assets/img/uploads"
+public_folder: "assets/img/uploads"
+
+# Optional: Vorschau-/Live-Adresse
+site_url: https://www.targem.ch
+display_url: https://www.targem.ch
+
+collections:
+  # =================================================================
+  # ALLGEMEIN
+  # =================================================================
+  - name: allgemein
+    label: "Allgemein & Kontakt"
+    description: "Grundangaben, Kontaktdaten und Footer – gelten auf der ganzen Website."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: allgemein
+        label: "Allgemeine Angaben"
+        file: "content/allgemein.json"
+        fields:
+          - { label: "Seitentitel (Browser-Tab & Google)", name: site_titel, widget: string, hint: "Erscheint im Browser-Tab und in den Google-Suchergebnissen." }
+          - { label: "Kurzbeschreibung der Website (SEO)", name: meta_beschreibung, widget: text, hint: "Ein bis zwei Sätze. Google zeigt diesen Text unter dem Titel an." }
+          - { label: "Autor", name: autor, widget: string, hint: "Name, der als Urheberin der Seite hinterlegt wird." }
+          - { label: "E-Mail-Adresse", name: email, widget: string, hint: "Ihre Kontakt-E-Mail, z. B. info@targem.ch." }
+          - { label: "Telefonnummer (Anzeige)", name: telefon, widget: string, hint: "So wird die Nummer angezeigt, z. B. +41 77 409 05 53. Der anklickbare Anruf-Link wird automatisch daraus erzeugt." }
+          - { label: "WhatsApp-Nummer (nur Ziffern)", name: whatsapp_nummer, widget: string, hint: "Nummer OHNE Leerzeichen, + oder 00, mit Ländervorwahl, z. B. 41774090553." }
+          - { label: "Adresse", name: adresse, widget: string, hint: "Ort und Land, z. B. 3075 Rüfenacht, Schweiz." }
+          - { label: "Instagram-Adresse (Link)", name: instagram_url, widget: string, hint: "Vollständiger Link zu Ihrem Instagram-Profil." }
+          - { label: "Instagram-Name (Anzeige)", name: instagram_name, widget: string, hint: "Wird im Footer angezeigt, z. B. @targem.ch." }
+          - { label: "Footer-Beschreibung", name: footer_beschreibung, widget: text, hint: "Kurzer Text im unteren Bereich (Fusszeile) der Website." }
+          - { label: "Copyright-Zeile", name: footer_copyright, widget: string, hint: "Ganz unten auf jeder Seite, z. B. © 2026 Targem! – Sally Mobasher." }
+          - { label: "Standort-Zeile (Footer)", name: footer_standort, widget: string, hint: "Kurze Ortsangabe unten rechts, z. B. Rüfenacht BE, Schweiz." }
+
+  # =================================================================
+  # STARTSEITE
+  # =================================================================
+  - name: startseite
+    label: "Startseite"
+    description: "Alle Texte der Startseite (Begrüssung, Über mich, Sprachkurse, Dienstleistungen, Kontakt)."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: startseite
+        label: "Startseite"
+        file: "content/startseite.json"
+        fields:
+          - label: "Begrüssung (oberster Bereich)"
+            name: hero
+            widget: object
+            hint: "Der grosse Bereich ganz oben auf der Startseite."
+            fields:
+              - { label: "Überschrift", name: ueberschrift, widget: string }
+              - { label: "Kurzer Slogan", name: tagline, widget: string, hint: "Kleiner Satz unter der Überschrift." }
+              - label: "Vorteile (Aufzählungspunkte)"
+                name: usp
+                widget: list
+                hint: "Ihre wichtigsten Vorteile. Ein Eintrag pro Punkt. Mit + hinzufügen."
+                field: { label: "Punkt", name: punkt, widget: string }
+              - { label: "Beschriftung Knopf 1 (Kontakt)", name: button_kontakt, widget: string }
+              - { label: "Beschriftung Knopf 2 (Angebote)", name: button_angebote, widget: string }
+
+          - label: "Über mich"
+            name: ueber_mich
+            widget: object
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, hint: "Kurzes Wort über der grossen Überschrift, z. B. Über mich." }
+              - { label: "Überschrift", name: ueberschrift, widget: string }
+              - { label: "Ihr Name", name: name, widget: string }
+              - { label: "Text", name: text, widget: text, hint: "Ihr Vorstellungstext. Für einen neuen Absatz eine LEERE Zeile einfügen." }
+              - { label: "Foto von Ihnen", name: bild, widget: image, hint: "Ihr Portraitfoto. Zum Ändern ein neues Bild hochladen.", required: false }
+
+          - label: "Sprachkurse & Preise"
+            name: sprachkurse
+            widget: object
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+              - { label: "Überschrift", name: ueberschrift, widget: string }
+              - { label: "Einleitungssatz", name: lead, widget: string }
+              - { label: "Text", name: text, widget: text, hint: "Für einen neuen Absatz eine LEERE Zeile einfügen." }
+              - { label: "Preise – kleine Überschrift", name: preise_eyebrow, widget: string }
+              - { label: "Preise – Überschrift", name: preise_ueberschrift, widget: string }
+              - { label: "Preise – Einleitungssatz", name: preise_lead, widget: string }
+              - { label: "Hinweis Probelektion", name: probe_hinweis, widget: string, hint: "Der hervorgehobene Hinweis, z. B. Erste Probelektion kostenlos!" }
+              - { label: "Überschrift der Sparpakete", name: pakete_ueberschrift, widget: string }
+
+          - label: "Übersetzungen & Dienstleistungen"
+            name: uebersetzungen
+            widget: object
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+              - { label: "Überschrift", name: ueberschrift, widget: string }
+              - { label: "Einleitungstext", name: lead, widget: text }
+              - label: "Die einzelnen Dienstleistungen"
+                name: leistungen
+                widget: list
+                hint: "Jede Kachel ist eine Dienstleistung. Mit + hinzufügen, am Griff verschieben."
+                fields:
+                  - label: "Symbol"
+                    name: icon
+                    widget: select
+                    hint: "Bestimmt das kleine Bildsymbol auf der Kachel."
+                    options:
+                      - { label: "Übersetzung (Feder)", value: uebersetzung }
+                      - { label: "Korrekturlesen (Stift)", value: korrektur }
+                      - { label: "Dolmetschen (Sprechblase)", value: dolmetschen }
+                  - { label: "Titel", name: titel, widget: string }
+                  - { label: "Beschreibung", name: beschreibung, widget: text }
+
+          - label: "Aktuell (Überschrift des News-Bereichs)"
+            name: aktuell
+            widget: object
+            hint: "Die Überschriften über den Neuigkeiten. Die Meldungen selbst pflegen Sie unter Aktuelles."
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+              - { label: "Überschrift", name: ueberschrift, widget: string }
+
+          - label: "Kontakt"
+            name: kontakt
+            widget: object
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+              - { label: "Überschrift", name: ueberschrift, widget: string }
+              - { label: "Einleitungstext", name: lead, widget: text }
+              - { label: "Satz über den Kontakt-Knöpfen", name: direkt_text, widget: string }
+
+  # =================================================================
+  # ANGEBOTE
+  # =================================================================
+  - name: angebote
+    label: "Angebote (Kurse & Preise)"
+    description: "Die buchbaren Kurse mit Preis, Dauer und Teilnehmerzahl."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: angebote
+        label: "Angebote"
+        file: "content/angebote.json"
+        fields:
+          - label: "Angebote"
+            name: angebote
+            widget: list
+            hint: "Jeder Eintrag ist eine Preis-Kachel. Mit + hinzufügen, per Griff sortieren."
+            fields:
+              - { label: "Titel", name: titel, widget: string }
+              - { label: "Untertitel", name: untertitel, widget: string, hint: "Kurze Beschreibung unter dem Titel." }
+              - { label: "Preis in CHF", name: preis_chf, widget: number, value_type: int, hint: "Nur die Zahl, ohne CHF, z. B. 80." }
+              - { label: "Dauer in Minuten", name: dauer_min, widget: number, value_type: int, hint: "Nur die Zahl, z. B. 50." }
+              - { label: "Ort", name: ort, widget: string, hint: "z. B. Online." }
+              - { label: "Teilnehmerzahl", name: teilnehmer, widget: string, hint: "z. B. 1 Person oder 3–4 Personen." }
+              - { label: "Hervorheben?", name: hervorheben, widget: boolean, default: false, hint: "Einschalten, um dieses Angebot optisch hervorzuheben." }
+
+  # =================================================================
+  # PAKETE
+  # =================================================================
+  - name: pakete
+    label: "Sparpakete"
+    description: "Die vergünstigten Paketangebote für den Privatunterricht."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: pakete
+        label: "Sparpakete"
+        file: "content/pakete.json"
+        fields:
+          - label: "Sparpakete"
+            name: pakete
+            widget: list
+            hint: "Jeder Eintrag ist ein Paket. Mit + hinzufügen."
+            fields:
+              - { label: "Titel", name: titel, widget: string, hint: "z. B. 6 Privatlektionen." }
+              - { label: "Preis in CHF", name: preis_chf, widget: number, value_type: int, hint: "Nur die Zahl, z. B. 400." }
+              - { label: "Beschreibung", name: beschreibung, widget: text }
+              - { label: "Kleines Etikett (Badge)", name: badge, widget: string, hint: "Kurzer Hinweis in der Ecke, z. B. 1 gratis." }
+
+  # =================================================================
+  # AKTUELLES (NEWS)
+  # =================================================================
+  - name: aktuelles
+    label: "Aktuelles (Neuigkeiten)"
+    description: "Kurze Meldungen. Sind Einträge vorhanden, erscheint der Bereich Aktuell auf der Startseite (neueste zuerst, max. 6)."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: aktuelles
+        label: "Aktuelles"
+        file: "content/aktuell.json"
+        fields:
+          - label: "Meldungen"
+            name: news
+            widget: list
+            label_singular: "Meldung"
+            hint: "Jede Meldung ist ein Eintrag. Neuere Datumsangaben werden zuerst gezeigt. Löschen Sie einen Eintrag, verschwindet er von der Website."
+            fields:
+              - { label: "Titel", name: titel, widget: string }
+              - { label: "Datum", name: datum, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "Bestimmt die Reihenfolge (neueste zuerst)." }
+              - { label: "Text", name: text, widget: text, hint: "Für einen neuen Absatz eine LEERE Zeile einfügen." }
+              - { label: "Bild (optional)", name: bild, widget: image, required: false, hint: "Kann leer bleiben. Wenn gesetzt, erscheint es über der Meldung." }
+
+  # =================================================================
+  # TERMINBUCHUNG
+  # =================================================================
+  - name: buchung
+    label: "Terminbuchung (Cal.com)"
+    description: "Online-Terminbuchung über Cal.com ein- oder ausschalten."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: buchung
+        label: "Terminbuchung"
+        file: "content/buchung.json"
+        fields:
+          - { label: "Terminbuchung anzeigen?", name: aktiv, widget: boolean, default: false, hint: "Einschalten, sobald Ihr Cal.com-Konto eingerichtet ist. Dann erscheint der Buchungskalender auf der Startseite." }
+          - { label: "Cal.com-Link", name: calcom_link, widget: string, required: false, hint: "Ihr Cal.com-Kürzel, z. B. sally/kennenlernen (der Teil nach cal.com/). Nur nötig, wenn die Buchung eingeschaltet ist." }
+          - { label: "Hinweistext (optional)", name: hinweis, widget: text, required: false, hint: "Kurzer Text über dem Kalender, z. B. Wählen Sie einen freien Termin." }
+
+  # =================================================================
+  # RECHTLICHES
+  # =================================================================
+  - name: rechtliches
+    label: "Rechtliches (Impressum & Datenschutz)"
+    description: "Inhalte der Seiten Impressum und Datenschutzerklärung."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: rechtliches
+        label: "Impressum & Datenschutz"
+        file: "content/rechtliches.json"
+        fields:
+          - label: "Impressum"
+            name: impressum
+            widget: object
+            fields:
+              - { label: "Seitentitel", name: titel, widget: string }
+              - label: "Abschnitte"
+                name: abschnitte
+                widget: list
+                hint: "Jeder Abschnitt hat eine Überschrift und einen Inhalt."
+                fields:
+                  - { label: "Überschrift", name: ueberschrift, widget: string }
+                  - label: "Art des Inhalts"
+                    name: typ
+                    widget: select
+                    hint: "Adresse = Angaben Zeile für Zeile untereinander. Text = normale Absätze."
+                    options:
+                      - { label: "Text (Absätze)", value: text }
+                      - { label: "Adresse (Zeilen)", value: adresse }
+                  - { label: "Inhalt", name: inhalt, widget: text, hint: "Fett mit **Sternchen** möglich. Link so: [Text](https://…). Neue Zeile = neue Zeile, leere Zeile = neuer Absatz." }
+          - label: "Datenschutzerklärung"
+            name: datenschutz
+            widget: object
+            fields:
+              - { label: "Seitentitel", name: titel, widget: string }
+              - { label: "Einleitung", name: einleitung, widget: text }
+              - label: "Abschnitte"
+                name: abschnitte
+                widget: list
+                hint: "Jeder Abschnitt hat eine Überschrift und einen Inhalt."
+                fields:
+                  - { label: "Überschrift", name: ueberschrift, widget: string }
+                  - label: "Art des Inhalts"
+                    name: typ
+                    widget: select
+                    options:
+                      - { label: "Text (Absätze)", value: text }
+                      - { label: "Adresse (Zeilen)", value: adresse }
+                  - { label: "Inhalt", name: inhalt, widget: text, hint: "Fett mit **Sternchen** möglich. Link so: [Text](https://…)." }
+              - { label: "Stand / Datum", name: stand, widget: string, hint: "z. B. Stand: Juli 2026." }

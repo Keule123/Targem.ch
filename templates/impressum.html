@@ -10,7 +10,24 @@
   <link rel="canonical" href="https://www.targem.ch/impressum.html">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Umschaltbares Design: modern (Standard) + klassisch. Reihenfolge/Skript gegen FOUC. -->
+  <link id="css-modern" rel="stylesheet" href="css/modern.css">
+  <link id="css-klassisch" rel="stylesheet" href="css/klassisch.css" media="not all">
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get('design');
+        var d = q || localStorage.getItem('targem-design') || 'modern';
+        if (d !== 'klassisch' && d !== 'modern') d = 'modern';
+        if (q) localStorage.setItem('targem-design', d);
+        document.documentElement.setAttribute('data-design', d);
+        if (d === 'klassisch') {
+          document.getElementById('css-klassisch').media = 'all';
+          document.getElementById('css-modern').media = 'not all';
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -41,37 +58,24 @@
         Zurück zur Startseite
       </a>
 
-      <h1>Impressum</h1>
-
-      <!-- Von der Inhaberin zu prüfen/vervollständigen -->
-
-      <h2>Angaben gemäss Schweizer Recht</h2>
-      <address>
-        <strong>Targem!</strong><br>
-        Sally Mobasher<br>
-        Einzelunternehmen<br>
-        3075 Rüfenacht<br>
-        Schweiz
-      </address>
-
-      <h2>Kontakt</h2>
-      <address>
-        E-Mail: <a href="mailto:info@targem.ch">info@targem.ch</a><br>
-        Telefon: <a href="tel:+41774090553">+41 77 409 05 53</a>
-      </address>
-
-      <h2>Verantwortlich für den Inhalt</h2>
-      <p>Sally Mobasher, Adresse wie oben.</p>
-
-      <h2>Haftungsausschluss</h2>
-      <p>Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Für Inhalte externer Links (z.&nbsp;B. Instagram) sind ausschliesslich deren Betreiber verantwortlich.</p>
+      <h1>{{ impressum.titel }}</h1>
+{{#each impressum.abschnitte}}
+      <h2>{{ ueberschrift }}</h2>
+      {{#if ist_adresse}}<address>{{{ inhalt_html }}}</address>{{else}}{{{ inhalt_html }}}{{/if}}
+{{/each}}
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom" style="margin-top:0;border-top:0;">
-        <span>© 2026 Targem! – Sally Mobasher</span>
+        <div class="design-switch" role="group" aria-label="Design wählen">
+          <span class="design-switch-label">Design:</span>
+          <button type="button" class="design-opt" data-design="klassisch" aria-pressed="false">Klassisch</button>
+          <span class="design-switch-sep" aria-hidden="true">|</span>
+          <button type="button" class="design-opt" data-design="modern" aria-pressed="true">Modern</button>
+        </div>
+        <span>{{ allgemein.footer_copyright }}</span>
         <span><a href="datenschutz.html">Datenschutz</a> &nbsp;·&nbsp; <a href="index.html">Startseite</a></span>
       </div>
     </div>

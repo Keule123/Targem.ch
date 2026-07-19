@@ -24,8 +24,13 @@ gefahrlos rückgängig gemacht werden.
 
 1. Diesen Pull Request mergen (Branch in `main` übernehmen).
 2. Auf GitHub: **Settings → Pages**
-3. Bei „Source": **Deploy from a branch**, Branch **main**, Ordner **/ (root)** wählen, speichern.
-4. Nach 1–2 Minuten ist die Seite unter `https://keule123.github.io/targem.ch/` erreichbar — kurz prüfen.
+3. Bei „Source": **GitHub Actions** wählen (nicht „Deploy from a branch" — die
+   Seite wird von einem automatischen Build-Workflow gebaut und veröffentlicht,
+   das braucht auch das Redaktionssystem unter `/admin/`).
+4. Einmalig den Workflow anstossen: Repo → **Actions** → „Build & Deploy to GitHub Pages" →
+   **Run workflow** (oder einfach die nächste Änderung mergen — er läuft bei jedem
+   Push auf `main` automatisch).
+5. Nach 1–2 Minuten ist die Seite unter `https://keule123.github.io/Targem.ch/` erreichbar — kurz prüfen.
 
 ## Schritt 2: Eigene Domain bei GitHub eintragen
 
