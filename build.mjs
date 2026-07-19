@@ -392,7 +392,7 @@ writeFileSync(join(DIST, '.nojekyll'), '', 'utf8');
 // vor der DNS-Umstellung auf die noch tote Domain umleiten.
 
 // Statische Ordner kopieren
-for (const dir of ['css', 'js', 'assets', 'admin']) {
+for (const dir of ['css', 'js', 'assets', 'admin', 'klassik']) {
   if (existsSync(join(ROOT, dir))) {
     cpSync(join(ROOT, dir), join(DIST, dir), { recursive: true });
     console.log('  kopiert:', dir + '/');
