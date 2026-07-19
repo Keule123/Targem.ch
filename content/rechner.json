@@ -1,0 +1,10 @@
+{
+  "aktiv": false,
+  "eyebrow": "Preisrechner",
+  "ueberschrift": "Richtpreis für Ihre Übersetzung",
+  "lead": "Geben Sie die ungefähre Wortzahl Ihres Textes ein und Sie erhalten sofort einen unverbindlichen Richtpreis.",
+  "preis_pro_wort_chf": 0.3,
+  "mindestpreis_chf": 60,
+  "express_zuschlag_prozent": 30,
+  "hinweis": "Unverbindlicher Richtpreis — massgebend ist die persönliche Offerte."
+}

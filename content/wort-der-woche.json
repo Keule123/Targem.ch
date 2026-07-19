@@ -1,0 +1,31 @@
+{
+  "eyebrow": "Wort der Woche",
+  "ueberschrift": "Ägyptisch-Arabisch für den Alltag",
+  "lead": "Jede Woche ein neuer Ausdruck aus dem ägyptischen Arabisch – zum Mitsprechen, Merken und Verlieben.",
+  "eintraege": [
+    {
+      "datum": "2026-07-06",
+      "arabisch": "أهلاً وسهلاً",
+      "transliteration": "ahlan wa sahlan",
+      "deutsch": "Herzlich willkommen",
+      "beispiel_arabisch": "أهلاً وسهلاً بيكي في مصر!",
+      "beispiel_deutsch": "Herzlich willkommen in Ägypten!"
+    },
+    {
+      "datum": "2026-07-13",
+      "arabisch": "يلّا",
+      "transliteration": "yalla",
+      "deutsch": "Los geht’s! / Komm schon!",
+      "beispiel_arabisch": "يلّا بينا نروح.",
+      "beispiel_deutsch": "Los, lass uns gehen."
+    },
+    {
+      "datum": "2026-07-20",
+      "arabisch": "حبيبي",
+      "transliteration": "habibi",
+      "deutsch": "mein Lieber / mein Schatz",
+      "beispiel_arabisch": "إزيّك يا حبيبي؟",
+      "beispiel_deutsch": "Wie geht es dir, mein Lieber?"
+    }
+  ]
+}

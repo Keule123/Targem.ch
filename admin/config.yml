@@ -89,6 +89,12 @@ collections:
               - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, hint: "Kurzes Wort über der grossen Überschrift, z. B. Über mich." }
               - { label: "Überschrift", name: ueberschrift, widget: string }
               - { label: "Ihr Name", name: name, widget: string }
+              - label: "Qualifikationen (Badges)"
+                name: qualifikationen
+                widget: list
+                hint: "Kleine Auszeichnungen, die als Reihe unter Ihrem Text erscheinen (z. B. Diplome, Erfahrung). Ein Eintrag pro Badge. Mit + hinzufügen."
+                required: false
+                field: { label: "Qualifikation", name: qualifikation, widget: string }
               - { label: "Text", name: text, widget: text, hint: "Ihr Vorstellungstext. Für einen neuen Absatz eine LEERE Zeile einfügen." }
               - { label: "Foto von Ihnen", name: bild, widget: image, hint: "Ihr Portraitfoto. Zum Ändern ein neues Bild hochladen.", required: false }
 
@@ -241,6 +247,146 @@ collections:
           - { label: "Hinweistext (optional)", name: hinweis, widget: text, required: false, hint: "Kurzer Text über dem Kalender, z. B. Wählen Sie einen freien Termin." }
 
   # =================================================================
+  # KUNDENSTIMMEN & REFERENZEN
+  # =================================================================
+  - name: kundenstimmen
+    label: "Kundenstimmen & Referenzen"
+    description: "Bewertungen von Kundinnen und Kunden sowie die Zeile «Vertraut von …». WICHTIG: Nur Einträge mit eingeschaltetem Schalter «Anzeigen» erscheinen öffentlich – veröffentlichen Sie ausschliesslich echte Aussagen."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: kundenstimmen
+        label: "Kundenstimmen"
+        file: "content/kundenstimmen.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+          - { label: "Überschrift", name: ueberschrift, widget: string }
+          - { label: "Google-Bewertungslink", name: google_review_url, widget: string, required: false, hint: "Optional. Ihren Rezensionslink finden Sie im Google-Unternehmensprofil unter «Rezensionen» → «Rezensionen erhalten». Ist ein Link hinterlegt, erscheint der Knopf «Bewerten Sie uns auf Google». Leer lassen = kein Knopf." }
+          - label: "Einträge (Bewertungen)"
+            name: eintraege
+            widget: list
+            label_singular: "Kundenstimme"
+            hint: "Der Bereich erscheint nur, wenn mindestens ein Eintrag auf «Anzeigen» steht. Bitte nur ECHTE Kundenstimmen einschalten – die Beispiele sind nur Platzhalter."
+            fields:
+              - { label: "Name / Kürzel", name: name, widget: string, hint: "z. B. «Anna K.» – aus Datenschutzgründen genügt oft der Vorname und ein Anfangsbuchstabe." }
+              - label: "Kategorie"
+                name: kategorie
+                widget: select
+                hint: "Worum ging es?"
+                options:
+                  - Sprachkurs
+                  - Übersetzung
+                  - Dolmetschen
+              - { label: "Text der Bewertung", name: text, widget: text }
+              - { label: "Anzeigen?", name: anzeigen, widget: boolean, default: false, hint: "Nur einschalten, wenn es eine ECHTE, freigegebene Kundenstimme ist. Beispiel-Einträge bleiben ausgeschaltet." }
+          - label: "Referenzen («Vertraut von …»)"
+            name: referenzen
+            widget: object
+            hint: "Eine dezente Zeile mit Kundentypen. Erscheint nur, wenn «Anzeigen» eingeschaltet ist."
+            fields:
+              - { label: "Anzeigen?", name: anzeigen, widget: boolean, default: false, hint: "Bitte erst einschalten, wenn die Angaben zutreffen und von Ihnen bestätigt sind." }
+              - { label: "Titel der Zeile", name: titel, widget: string, hint: "z. B. «Vertraut von»." }
+              - label: "Kundentypen"
+                name: kundentypen
+                widget: list
+                hint: "Nur zutreffende Typen behalten (z. B. Privatpersonen, Anwaltskanzleien, Behörden, Unternehmen). Bitte prüfen."
+                field: { label: "Kundentyp", name: kundentyp, widget: string }
+
+  # =================================================================
+  # FAQ (HÄUFIGE FRAGEN)
+  # =================================================================
+  - name: faq
+    label: "FAQ (Häufige Fragen)"
+    description: "Fragen und Antworten als aufklappbares Akkordeon auf der Startseite. Die Seed-Texte sind ENTWÜRFE – bitte prüfen und anpassen."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: faq
+        label: "FAQ"
+        file: "content/faq.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+          - { label: "Überschrift", name: ueberschrift, widget: string }
+          - { label: "Einleitungstext", name: lead, widget: text }
+          - label: "Fragen & Antworten"
+            name: eintraege
+            widget: list
+            label_singular: "Frage"
+            hint: "ENTWÜRFE – von der Inhaberin prüfen/anpassen. Jeder Eintrag ist eine Frage mit Antwort. Mit + hinzufügen, per Griff sortieren."
+            fields:
+              - { label: "Frage", name: frage, widget: string }
+              - { label: "Antwort", name: antwort, widget: text, hint: "Für einen neuen Absatz eine LEERE Zeile einfügen." }
+
+  # =================================================================
+  # EINSTUFUNGSTEST DEUTSCH
+  # =================================================================
+  - name: einstufungstest
+    label: "Einstufungstest Deutsch"
+    description: "Interaktiver Selbsttest, der das Deutsch-Niveau grob einschätzt. Die Fragen sind ENTWÜRFE – bitte prüfen."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: einstufungstest
+        label: "Einstufungstest"
+        file: "content/einstufungstest.json"
+        fields:
+          - { label: "Test anzeigen?", name: aktiv, widget: boolean, default: true, hint: "Ausschalten, um den Test auszublenden." }
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+          - { label: "Überschrift", name: ueberschrift, widget: string }
+          - { label: "Einleitungstext", name: lead, widget: text }
+          - { label: "Beschriftung Start-Knopf", name: start_button, widget: string }
+          - label: "Fragen"
+            name: fragen
+            widget: list
+            label_singular: "Frage"
+            hint: "ENTWÜRFE – bitte prüfen. Jede Frage hat mehrere Antwortoptionen. Die richtige Antwort erhält die meisten Punkte."
+            fields:
+              - { label: "Frage", name: frage, widget: string }
+              - label: "Antwortoptionen"
+                name: optionen
+                widget: list
+                label_singular: "Option"
+                hint: "Meist vier Optionen. Nur die richtige Antwort bekommt 3 Punkte, die anderen 0."
+                fields:
+                  - { label: "Antworttext", name: text, widget: string }
+                  - { label: "Punkte (0–3)", name: punkte, widget: number, value_type: int, min: 0, max: 3, default: 0 }
+          - label: "Auswertung (Niveaustufen)"
+            name: stufen
+            widget: list
+            label_singular: "Stufe"
+            hint: "Von wenig zu viel Punkten. Es wird die erste Stufe genommen, deren «bis Punkte» erreicht wird."
+            fields:
+              - { label: "Bis Punkte (Obergrenze)", name: bis_punkte, widget: number, value_type: int, hint: "z. B. 6. Wer bis zu dieser Punktzahl erreicht, landet in dieser Stufe." }
+              - { label: "Niveau", name: niveau, widget: string, hint: "z. B. A1, A2, B1, B2, C1." }
+              - { label: "Empfehlungstext", name: empfehlung, widget: text }
+
+  # =================================================================
+  # ÜBERSETZUNGS-PREISRECHNER
+  # =================================================================
+  - name: rechner
+    label: "Preisrechner (Übersetzungen)"
+    description: "Richtpreis-Rechner für Übersetzungen. Der Bereich erscheint nur, wenn er eingeschaltet ist. Passen Sie zuerst die Richtwerte an, dann einschalten."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: rechner
+        label: "Preisrechner"
+        file: "content/rechner.json"
+        fields:
+          - { label: "Rechner anzeigen?", name: aktiv, widget: boolean, default: false, hint: "Die Preise sind Ihre Geschäftsentscheidung: erst die Richtwerte anpassen, dann einschalten." }
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+          - { label: "Überschrift", name: ueberschrift, widget: string }
+          - { label: "Einleitungstext", name: lead, widget: text }
+          - { label: "Preis pro Wort (CHF)", name: preis_pro_wort_chf, widget: number, value_type: float, hint: "z. B. 0.30." }
+          - { label: "Mindestpreis (CHF)", name: mindestpreis_chf, widget: number, value_type: int, hint: "Kleinstmöglicher Richtpreis, z. B. 60." }
+          - { label: "Express-Zuschlag (%)", name: express_zuschlag_prozent, widget: number, value_type: int, hint: "Prozentualer Aufschlag für Express, z. B. 30." }
+          - { label: "Hinweistext unter dem Ergebnis", name: hinweis, widget: text, hint: "z. B. «Unverbindlicher Richtpreis — massgebend ist die persönliche Offerte.»" }
+
+  # =================================================================
   # RECHTLICHES
   # =================================================================
   - name: rechtliches
@@ -293,3 +439,306 @@ collections:
                       - { label: "Adresse (Zeilen)", value: adresse }
                   - { label: "Inhalt", name: inhalt, widget: text, hint: "Fett mit **Sternchen** möglich. Link so: [Text](https://…)." }
               - { label: "Stand / Datum", name: stand, widget: string, hint: "z. B. Stand: Juli 2026." }
+
+  # =================================================================
+  # WORT DER WOCHE
+  # =================================================================
+  - name: wort_der_woche
+    label: "Wort der Woche"
+    description: "Ägyptisch-arabischer Ausdruck der Woche auf der Startseite. Es wird immer der NEUESTE Eintrag (nach Datum) gezeigt."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: wort_der_woche
+        label: "Wort der Woche"
+        file: "content/wort-der-woche.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+          - { label: "Überschrift", name: ueberschrift, widget: string }
+          - { label: "Einleitungssatz", name: lead, widget: string, required: false }
+          - label: "Einträge"
+            name: eintraege
+            widget: list
+            label_singular: "Wort"
+            hint: "Wöchentlich einen neuen Eintrag hinzufügen (mit +). Angezeigt wird immer der Eintrag mit dem neuesten Datum."
+            fields:
+              - { label: "Datum", name: datum, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "Bestimmt, welcher Eintrag angezeigt wird (neuester zuerst)." }
+              - { label: "Arabisch (arabische Schrift)", name: arabisch, widget: string, hint: "Das Wort in arabischer Schrift, z. B. حبيبي." }
+              - { label: "Umschrift (lateinisch)", name: transliteration, widget: string, hint: "Aussprache in lateinischen Buchstaben, z. B. habibi." }
+              - { label: "Deutsche Bedeutung", name: deutsch, widget: string }
+              - { label: "Beispielsatz (Arabisch)", name: beispiel_arabisch, widget: string, hint: "Kurzer Beispielsatz in arabischer Schrift." }
+              - { label: "Beispielsatz (Deutsch)", name: beispiel_deutsch, widget: string }
+
+  # =================================================================
+  # GESCHICHTE / WERDEGANG (TIMELINE)
+  # =================================================================
+  - name: story
+    label: "Werdegang (Zeitleiste)"
+    description: "Die Stationen «Von Kairo über Leipzig nach Bern» als Zeitleiste im Bereich Über mich."
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: story
+        label: "Werdegang"
+        file: "content/story.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string }
+          - { label: "Überschrift", name: ueberschrift, widget: string }
+          - label: "Stationen"
+            name: stationen
+            widget: list
+            label_singular: "Station"
+            hint: "Jede Station ist ein Punkt auf der Zeitleiste (z. B. Kairo, Leipzig, Bern). Mit + hinzufügen."
+            fields:
+              - { label: "Ort", name: ort, widget: string, hint: "z. B. Kairo." }
+              - { label: "Kurztitel", name: label, widget: string, hint: "Ein kurzer Titel zur Station, z. B. «Aufgewachsen zwischen zwei Kulturen»." }
+              - { label: "Text", name: text, widget: text }
+
+  # =================================================================
+  # ARABISCHE WEBSITE (/ar/)
+  # -----------------------------------------------------------------
+  # WICHTIG: Alle Felder hier enthalten ARABISCHEN Text (Übersetzungs-
+  # entwürfe – bitte von der Inhaberin, einer Profi-Übersetzerin, prüfen
+  # und freigeben). Leer gelassene Felder fallen automatisch auf den
+  # deutschen Text zurück, damit nie etwas leer erscheint.
+  # Impressum & Datenschutz bleiben rechtlich massgeblich nur deutsch.
+  # =================================================================
+  - name: arabisch
+    label: "Arabische Website (/ar/)"
+    description: "Arabische Übersetzungen (ENTWÜRFE – bitte prüfen). Leere Felder greifen automatisch auf den deutschen Text zurück."
+    delete: false
+    editor:
+      preview: false
+    files:
+      # ---- Allgemein (Arabisch) ----
+      - name: allgemein_ar
+        label: "Allgemein & Kontakt (Arabisch)"
+        file: "content/ar/allgemein.json"
+        fields:
+          - { label: "Seitentitel (Browser-Tab & Google)", name: site_titel, widget: string, required: false, hint: "Arabischer Text – Entwurf, bitte prüfen." }
+          - { label: "Kurzbeschreibung (SEO)", name: meta_beschreibung, widget: text, required: false, hint: "Arabischer Text – Entwurf, bitte prüfen." }
+          - { label: "Adresse", name: adresse, widget: string, required: false, hint: "Arabischer Text – Entwurf, bitte prüfen." }
+          - { label: "Footer-Beschreibung", name: footer_beschreibung, widget: text, required: false, hint: "Arabischer Text – Entwurf, bitte prüfen." }
+          - { label: "Copyright-Zeile", name: footer_copyright, widget: string, required: false, hint: "Arabischer Text – Entwurf, bitte prüfen." }
+          - { label: "Standort-Zeile (Footer)", name: footer_standort, widget: string, required: false, hint: "Arabischer Text – Entwurf, bitte prüfen." }
+
+      # ---- Startseite (Arabisch) ----
+      - name: startseite_ar
+        label: "Startseite (Arabisch)"
+        file: "content/ar/startseite.json"
+        fields:
+          - label: "Begrüssung (oberster Bereich)"
+            name: hero
+            widget: object
+            required: false
+            hint: "Arabischer Text – Entwurf, bitte prüfen."
+            fields:
+              - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+              - { label: "Kurzer Slogan", name: tagline, widget: string, required: false }
+              - label: "Vorteile (Aufzählungspunkte)"
+                name: usp
+                widget: list
+                required: false
+                field: { label: "Punkt", name: punkt, widget: string }
+              - { label: "Beschriftung Knopf 1 (Kontakt)", name: button_kontakt, widget: string, required: false }
+              - { label: "Beschriftung Knopf 2 (Angebote)", name: button_angebote, widget: string, required: false }
+          - label: "Über mich"
+            name: ueber_mich
+            widget: object
+            required: false
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+              - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+              - { label: "Name", name: name, widget: string, required: false }
+              - label: "Qualifikationen (Badges)"
+                name: qualifikationen
+                widget: list
+                required: false
+                field: { label: "Qualifikation", name: qualifikation, widget: string }
+              - { label: "Text", name: text, widget: text, required: false, hint: "Für einen neuen Absatz eine LEERE Zeile einfügen." }
+          - label: "Sprachkurse & Preise"
+            name: sprachkurse
+            widget: object
+            required: false
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+              - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+              - { label: "Einleitungssatz", name: lead, widget: string, required: false }
+              - { label: "Text", name: text, widget: text, required: false }
+              - { label: "Preise – kleine Überschrift", name: preise_eyebrow, widget: string, required: false }
+              - { label: "Preise – Überschrift", name: preise_ueberschrift, widget: string, required: false }
+              - { label: "Preise – Einleitungssatz", name: preise_lead, widget: string, required: false }
+              - { label: "Hinweis Probelektion", name: probe_hinweis, widget: string, required: false }
+              - { label: "Überschrift der Sparpakete", name: pakete_ueberschrift, widget: string, required: false }
+          - label: "Übersetzungen & Dienstleistungen"
+            name: uebersetzungen
+            widget: object
+            required: false
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+              - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+              - { label: "Einleitungstext", name: lead, widget: text, required: false }
+              - label: "Die einzelnen Dienstleistungen"
+                name: leistungen
+                widget: list
+                required: false
+                hint: "Reihenfolge wie auf der deutschen Seite. Das Symbol wird vom deutschen Eintrag übernommen."
+                fields:
+                  - { label: "Titel", name: titel, widget: string, required: false }
+                  - { label: "Beschreibung", name: beschreibung, widget: text, required: false }
+          - label: "Aktuell (Überschriften)"
+            name: aktuell
+            widget: object
+            required: false
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+              - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - label: "Kontakt"
+            name: kontakt
+            widget: object
+            required: false
+            fields:
+              - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+              - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+              - { label: "Einleitungstext", name: lead, widget: text, required: false }
+              - { label: "Satz über den Kontakt-Knöpfen", name: direkt_text, widget: string, required: false }
+
+      # ---- Angebote (Arabisch) ----
+      - name: angebote_ar
+        label: "Angebote (Arabisch)"
+        file: "content/ar/angebote.json"
+        fields:
+          - label: "Angebote"
+            name: angebote
+            widget: list
+            required: false
+            hint: "Nur Texte übersetzen; Preis, Dauer und Hervorhebung werden vom deutschen Eintrag übernommen. Reihenfolge beibehalten."
+            fields:
+              - { label: "Titel", name: titel, widget: string, required: false }
+              - { label: "Untertitel", name: untertitel, widget: string, required: false }
+              - { label: "Ort", name: ort, widget: string, required: false }
+              - { label: "Teilnehmerzahl", name: teilnehmer, widget: string, required: false }
+
+      # ---- Pakete (Arabisch) ----
+      - name: pakete_ar
+        label: "Sparpakete (Arabisch)"
+        file: "content/ar/pakete.json"
+        fields:
+          - label: "Sparpakete"
+            name: pakete
+            widget: list
+            required: false
+            hint: "Nur Texte übersetzen; der Preis wird vom deutschen Eintrag übernommen. Reihenfolge beibehalten."
+            fields:
+              - { label: "Titel", name: titel, widget: string, required: false }
+              - { label: "Beschreibung", name: beschreibung, widget: text, required: false }
+              - { label: "Kleines Etikett (Badge)", name: badge, widget: string, required: false }
+
+      # ---- Aktuelles (Arabisch) ----
+      - name: aktuell_ar
+        label: "Aktuelles (Arabisch)"
+        file: "content/ar/aktuell.json"
+        fields:
+          - label: "Meldungen"
+            name: news
+            widget: list
+            required: false
+            label_singular: "Meldung"
+            hint: "Nur Texte übersetzen; Datum und Bild werden vom deutschen Eintrag übernommen. Gleiche Reihenfolge."
+            fields:
+              - { label: "Titel", name: titel, widget: string, required: false }
+              - { label: "Text", name: text, widget: text, required: false }
+
+      # ---- Kundenstimmen & Referenzen (Arabisch) ----
+      - name: kundenstimmen_ar
+        label: "Kundenstimmen & Referenzen (Arabisch)"
+        file: "content/ar/kundenstimmen.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+          - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - label: "Referenzen («Vertraut von …»)"
+            name: referenzen
+            widget: object
+            required: false
+            fields:
+              - { label: "Titel der Zeile", name: titel, widget: string, required: false }
+              - label: "Kundentypen"
+                name: kundentypen
+                widget: list
+                required: false
+                field: { label: "Kundentyp", name: kundentyp, widget: string }
+
+      # ---- FAQ (Arabisch) ----
+      - name: faq_ar
+        label: "FAQ (Arabisch)"
+        file: "content/ar/faq.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+          - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - { label: "Einleitungstext", name: lead, widget: text, required: false }
+          - label: "Fragen & Antworten"
+            name: eintraege
+            widget: list
+            required: false
+            label_singular: "Frage"
+            hint: "Gleiche Reihenfolge wie auf der deutschen Seite."
+            fields:
+              - { label: "Frage", name: frage, widget: string, required: false }
+              - { label: "Antwort", name: antwort, widget: text, required: false }
+
+      # ---- Preisrechner (Arabisch) ----
+      - name: rechner_ar
+        label: "Preisrechner (Arabisch)"
+        file: "content/ar/rechner.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+          - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - { label: "Einleitungstext", name: lead, widget: text, required: false }
+          - { label: "Hinweistext unter dem Ergebnis", name: hinweis, widget: text, required: false }
+
+      # ---- Einstufungstest (Arabisch) ----
+      - name: einstufungstest_ar
+        label: "Einstufungstest (Arabisch)"
+        file: "content/ar/einstufungstest.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+          - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - { label: "Einleitungstext", name: lead, widget: text, required: false, hint: "Die 10 Testfragen bleiben absichtlich DEUTSCH (Deutsch-Test für Arabischsprachige)." }
+          - { label: "Beschriftung Start-Knopf", name: start_button, widget: string, required: false }
+          - label: "Auswertung (Empfehlungstexte)"
+            name: stufen
+            widget: list
+            required: false
+            label_singular: "Stufe"
+            hint: "Nur die Empfehlungstexte übersetzen (gleiche Reihenfolge A1…C1); Niveau und Punktegrenzen kommen aus dem Deutschen."
+            fields:
+              - { label: "Empfehlungstext", name: empfehlung, widget: text, required: false }
+
+      # ---- Wort der Woche (Arabisch) ----
+      - name: wort_der_woche_ar
+        label: "Wort der Woche – Rahmentexte (Arabisch)"
+        file: "content/ar/wort-der-woche.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+          - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - { label: "Einleitungssatz", name: lead, widget: string, required: false, hint: "Die Wort-Einträge selbst (arabisches Wort etc.) werden aus der deutschen Sammlung übernommen." }
+
+      # ---- Werdegang (Arabisch) ----
+      - name: story_ar
+        label: "Werdegang / Zeitleiste (Arabisch)"
+        file: "content/ar/story.json"
+        fields:
+          - { label: "Kleine Überschrift darüber", name: eyebrow, widget: string, required: false }
+          - { label: "Überschrift", name: ueberschrift, widget: string, required: false }
+          - label: "Stationen"
+            name: stationen
+            widget: list
+            required: false
+            label_singular: "Station"
+            hint: "Gleiche Reihenfolge wie auf der deutschen Seite."
+            fields:
+              - { label: "Ort", name: ort, widget: string, required: false }
+              - { label: "Kurztitel", name: label, widget: string, required: false }
+              - { label: "Text", name: text, widget: text, required: false }

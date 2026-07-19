@@ -1,0 +1,39 @@
+{
+  "eyebrow": "Häufige Fragen",
+  "ueberschrift": "Fragen und Antworten",
+  "lead": "Hier finden Sie Antworten auf oft gestellte Fragen. Ist Ihre Frage nicht dabei? Schreiben Sie mir einfach – ich helfe Ihnen gerne weiter.",
+  "eintraege": [
+    {
+      "frage": "Wie läuft die kostenlose Probelektion ab?",
+      "antwort": "In einer unverbindlichen ersten Lektion lernen wir uns kennen, klären Ihr Ziel und Ihr aktuelles Niveau und Sie bekommen ein Gefühl für meinen Unterricht. Danach entscheiden Sie in Ruhe, ob und wie Sie weitermachen möchten."
+    },
+    {
+      "frage": "Welche Technik brauche ich für den Online-Unterricht?",
+      "antwort": "Es genügt ein Computer, Tablet oder Smartphone mit Kamera, Mikrofon und einer stabilen Internetverbindung. Der Unterricht findet in der Regel über Zoom oder ein vergleichbares Programm statt – den Link erhalten Sie vorab. Vorkenntnisse für die Technik sind nicht nötig."
+    },
+    {
+      "frage": "Sind Eilübersetzungen übers Wochenende möglich?",
+      "antwort": "In dringenden Fällen sind Eilübersetzungen auch übers Wochenende und an Feiertagen möglich. Fragen Sie am besten kurz an – ich sage Ihnen schnell, ob und bis wann ich Ihren Auftrag umsetzen kann."
+    },
+    {
+      "frage": "Bieten Sie beglaubigte oder amtliche Übersetzungen an?",
+      "antwort": "Ob eine amtliche oder beglaubigte Übersetzung für Ihr Dokument möglich ist, klären wir am besten persönlich – bitte fragen Sie mit den Angaben zu Ihrem Dokument und dem Verwendungszweck an. So kann ich Ihnen verbindlich sagen, was ich anbieten kann."
+    },
+    {
+      "frage": "Welche Zahlungsarten sind möglich?",
+      "antwort": "Die Bezahlung erfolgt in der Regel bequem per Banküberweisung. Die genauen Angaben erhalten Sie mit Ihrer persönlichen Offerte beziehungsweise vor Kursbeginn."
+    },
+    {
+      "frage": "Wie kann ich einen Termin absagen oder verschieben?",
+      "antwort": "Sagen Sie einen vereinbarten Termin bitte rechtzeitig ab, wenn Sie verhindert sind, damit wir gemeinsam einen neuen Termin finden können. Die konkreten Bedingungen besprechen wir bei der Buchung."
+    },
+    {
+      "frage": "Wie gross sind die Gruppen im Unterricht?",
+      "antwort": "Ich unterrichte im Einzelunterricht, zu zweit oder in kleinen Gruppen von drei bis vier Personen. Kleine Gruppen sorgen dafür, dass ich auf jede Teilnehmerin und jeden Teilnehmer persönlich eingehen kann."
+    },
+    {
+      "frage": "Für welche Niveaustufen ist der Unterricht geeignet?",
+      "antwort": "Vom ersten Einstieg bis zur Vertiefung fortgeschrittener Kenntnisse ist alles möglich. Ich richte mich nach Ihrem aktuellen Niveau und Ihren Zielen. Für Deutsch können Sie mit dem Einstufungstest auf dieser Seite eine erste Orientierung bekommen."
+    }
+  ]
+}

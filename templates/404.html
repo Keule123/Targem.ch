@@ -1,48 +1,37 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ lang }}" dir="{{ dir }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Seite nicht gefunden | Targem!</title>
+  <title>{{ ui.err_title }}</title>
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#FFFEF8">
-  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <!-- Umschaltbares Design: modern (Standard) + klassisch. Reihenfolge/Skript gegen FOUC. -->
-  <link id="css-modern" rel="stylesheet" href="css/modern.css">
-  <link id="css-klassisch" rel="stylesheet" href="css/klassisch.css" media="not all">
-  <script>
-    (function () {
-      try {
-        var q = new URLSearchParams(location.search).get('design');
-        var d = q || localStorage.getItem('targem-design') || 'modern';
-        if (d !== 'klassisch' && d !== 'modern') d = 'modern';
-        if (q) localStorage.setItem('targem-design', d);
-        document.documentElement.setAttribute('data-design', d);
-        if (d === 'klassisch') {
-          document.getElementById('css-klassisch').media = 'all';
-          document.getElementById('css-modern').media = 'not all';
-        }
-      } catch (e) {}
-    })();
-  </script>
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/modern.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Targem! – Startseite">
+      <a class="brand" href="{{ home_path }}" aria-label="{{ ui.brand_aria }}">
         <img src="/assets/img/logo-klein.png" width="500" height="333" alt="Targem! Logo">
       </a>
+      <div class="header-side">
+        <a class="lang-switch" href="{{ lang_switch_url }}" lang="{{ lang_switch_lang }}" hreflang="{{ lang_switch_hreflang }}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+          <span>{{ lang_switch_label }}</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main class="error-page">
     <div>
       <p class="code">404</p>
-      <h1>Diese Seite gibt es leider nicht</h1>
-      <p>Vielleicht wurde die Seite verschoben oder der Link ist nicht mehr aktuell. Kein Problem – kehren Sie einfach zur Startseite zurück.</p>
+      <h1>{{ ui.err_h1 }}</h1>
+      <p>{{ ui.err_text }}</p>
       <p style="margin-top:1.75rem;">
-        <a class="btn btn-primary" href="/">Zur Startseite</a>
+        <a class="btn btn-primary" href="{{ home_path }}">{{ ui.err_btn }}</a>
       </p>
     </div>
   </main>
@@ -50,18 +39,18 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom" style="margin-top:0;border-top:0;">
-        <div class="design-switch" role="group" aria-label="Design wählen">
-          <span class="design-switch-label">Design:</span>
-          <button type="button" class="design-opt" data-design="klassisch" aria-pressed="false">Klassisch</button>
-          <span class="design-switch-sep" aria-hidden="true">|</span>
-          <button type="button" class="design-opt" data-design="modern" aria-pressed="true">Modern</button>
+        <div class="version-switch">
+          <span class="version-switch-label">{{ ui.version_label }}</span>
+          <span class="version-opt is-current" aria-current="true">{{ ui.version_neu }}</span>
+          <span class="version-switch-sep" aria-hidden="true">|</span>
+          <a class="version-opt" href="/klassik/">{{ ui.version_bisherig }}</a>
         </div>
         <span>{{ allgemein.footer_copyright }}</span>
-        <span><a href="/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a></span>
+        <span><a href="/impressum.html">{{ ui.footer_impressum }}</a> &nbsp;·&nbsp; <a href="/datenschutz.html">{{ ui.footer_datenschutz }}</a></span>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="/js/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seite nicht gefunden | Targem!</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#FFFEF8">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <!-- Umschaltbares Design: modern (Standard) + klassisch. Reihenfolge/Skript gegen FOUC. -->
+  <link id="css-modern" rel="stylesheet" href="css/modern.css">
+  <link id="css-klassisch" rel="stylesheet" href="css/klassisch.css" media="not all">
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get('design');
+        var d = q || localStorage.getItem('targem-design') || 'modern';
+        if (d !== 'klassisch' && d !== 'modern') d = 'modern';
+        if (q) localStorage.setItem('targem-design', d);
+        document.documentElement.setAttribute('data-design', d);
+        if (d === 'klassisch') {
+          document.getElementById('css-klassisch').media = 'all';
+          document.getElementById('css-modern').media = 'not all';
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:9999;background:#123033;color:#FFFEF8;text-align:center;padding:0.5rem 1rem;font-family:sans-serif;font-size:0.9rem;">Sie sehen die bisherige Version dieser Website &nbsp;·&nbsp; <a href="/" style="color:#AADCE1;font-weight:bold;">Zur neuen Version</a></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Targem! – Startseite">
+        <img src="/assets/img/logo-klein.png" width="500" height="333" alt="Targem! Logo">
+      </a>
+    </div>
+  </header>
+
+  <main class="error-page">
+    <div>
+      <p class="code">404</p>
+      <h1>Diese Seite gibt es leider nicht</h1>
+      <p>Vielleicht wurde die Seite verschoben oder der Link ist nicht mehr aktuell. Kein Problem – kehren Sie einfach zur Startseite zurück.</p>
+      <p style="margin-top:1.75rem;">
+        <a class="btn btn-primary" href="/">Zur Startseite</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="margin-top:0;border-top:0;">
+        <div class="design-switch" role="group" aria-label="Design wählen">
+          <span class="design-switch-label">Design:</span>
+          <button type="button" class="design-opt" data-design="klassisch" aria-pressed="false">Klassisch</button>
+          <span class="design-switch-sep" aria-hidden="true">|</span>
+          <button type="button" class="design-opt" data-design="modern" aria-pressed="true">Modern</button>
+        </div>
+        <span>© 2026 Targem! – Sally Mobasher</span>
+        <span><a href="/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

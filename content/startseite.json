@@ -14,6 +14,12 @@
     "eyebrow": "Über mich",
     "ueberschrift": "Sprachen sind meine Leidenschaft",
     "name": "Sally Mobasher",
+    "qualifikationen": [
+      "Übersetzungsdiplom Universität Leipzig",
+      "Goethe-Institut-Diplom",
+      "Germanistik Universität Kairo",
+      "Über 30 Jahre Spracherfahrung"
+    ],
     "text": "Sprachen sind meine grosse Leidenschaft, deshalb habe ich sie zu meinem Beruf gemacht. Ich hatte das Privileg zwischen zwei Kulturen aufzuwachsen: der Deutschen Kultur und der Ägyptischen Kultur. Somit habe ich beide Sprachen in ihrem jeweiligen Umfeld und auch in der Familie erlernt.\n\nDies habe ich mit einem Germanistikstudium an der Kairoer Universität und einem Übersetzungsdiplom der Universität Leipzig untermauert. Der Erwerb eines Diploms des Goetheinstituts, gab mir die pädagogischen Grundlagen um beide Sprachen weiterzugeben.\n\nIn den letzten 20 Jahren habe ich mich mit Übersetzen / Dolmetschen und dem Weitergeben der Deutschen, Arabischen und der Ägyptisch-Arabischen Sprache befasst.",
     "bild": "assets/img/sally-mobasher.jpg"
   },

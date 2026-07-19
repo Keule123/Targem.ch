@@ -123,7 +123,7 @@ p { margin: 0 0 1rem; }
 
 .skip-link {
   position: absolute;
-  inset-inline-start: 0.75rem; top: -100px;
+  left: 0.75rem; top: -100px;
   z-index: 1000;
   background: var(--petrol);
   color: var(--cream);
@@ -296,31 +296,8 @@ p { margin: 0 0 1rem; }
   transition: min-height 0.3s ease;
 }
 .site-header.is-scrolled .header-inner { min-height: 62px; }
-.brand { display: inline-flex; align-items: center; margin-inline-end: auto; }
+.brand { display: inline-flex; align-items: center; }
 .brand img { height: 48px; width: auto; transition: height 0.3s ease; }
-
-/* Rechte Kopfgruppe: Sprachumschalter + Burger */
-.header-side { display: inline-flex; align-items: center; gap: 0.6rem; }
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.9rem;
-  line-height: 1;
-  color: var(--teal-dark);
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(46, 123, 131, 0.28);
-  border-radius: 999px;
-  padding: 0.5rem 0.9rem;
-  white-space: nowrap;
-  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.lang-switch svg { flex: 0 0 auto; opacity: 0.9; }
-.lang-switch:hover { color: #fff; background: var(--teal); border-color: var(--teal); box-shadow: var(--shadow-sm); }
-.lang-switch:hover svg { color: #fff; }
 .site-header.is-scrolled .brand img { height: 40px; }
 
 .nav-toggle {
@@ -449,13 +426,13 @@ p { margin: 0 0 1rem; }
 }
 .usp-list li {
   position: relative;
-  padding-inline-start: 2.3rem;
+  padding-left: 2.3rem;
   color: var(--petrol-2);
 }
 .usp-list li::before {
   content: "";
   position: absolute;
-  inset-inline-start: 0; top: 0.2em;
+  left: 0; top: 0.2em;
   width: 1.5rem; height: 1.5rem;
   border-radius: 50%;
   box-shadow: 0 4px 10px -4px rgba(46,123,131,0.6);
@@ -507,7 +484,7 @@ p { margin: 0 0 1rem; }
 @media (min-width: 780px) {
   .about-grid { grid-template-columns: 340px 1fr; }
 }
-.about-text { text-align: start; }
+.about-text { text-align: left; }
 /* Porträt als Kartusche mit doppelter Haarlinie */
 .portrait {
   position: relative;
@@ -604,7 +581,7 @@ p { margin: 0 0 1rem; }
   line-height: 1;
   margin-bottom: 0.15rem;
 }
-.card .price .cur { font-size: 1.05rem; vertical-align: 0.35em; margin-inline-end: 0.15rem; color: var(--teal); }
+.card .price .cur { font-size: 1.05rem; vertical-align: 0.35em; margin-right: 0.15rem; color: var(--teal); }
 .card .meta {
   list-style: none; padding: 0; margin: 1.2rem 0 0;
   display: grid; gap: 0.55rem; font-size: 0.93rem; color: var(--petrol-2);
@@ -621,7 +598,7 @@ p { margin: 0 0 1rem; }
 .card-hervorgehoben::after {
   content: "Beliebt";
   position: absolute;
-  top: 1rem; inset-inline-end: 1rem;
+  top: 1rem; right: 1rem;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.68rem;
@@ -652,7 +629,7 @@ p { margin: 0 0 1rem; }
 }
 .package:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 .package .ribbon {
-  position: absolute; top: 1.3rem; inset-inline-end: 1.3rem;
+  position: absolute; top: 1.3rem; right: 1.3rem;
   background: linear-gradient(135deg, #F19A38, var(--orange));
   color: #2a1503;
   font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em;
@@ -719,7 +696,7 @@ p { margin: 0 0 1rem; }
 .contact-grid {
   display: grid;
   gap: clamp(1.9rem, 4vw, 3.25rem);
-  text-align: start;
+  text-align: left;
   grid-template-columns: minmax(0, 1fr);
 }
 @media (min-width: 860px) { .contact-grid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); align-items: start; } }
@@ -727,7 +704,7 @@ p { margin: 0 0 1rem; }
 
 .contact-info > p { color: var(--petrol-2); }
 .contact-actions { display: grid; gap: 0.85rem; margin: 1.5rem 0 1.9rem; }
-.contact-actions .btn { justify-content: flex-start; text-align: start; padding-inline: 1.4rem; }
+.contact-actions .btn { justify-content: flex-start; padding-inline: 1.4rem; }
 .contact-actions .btn svg { flex: 0 0 auto; }
 
 .contact-meta {
@@ -948,515 +925,3 @@ p { margin: 0 0 1rem; }
   transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .reveal.is-visible { opacity: 1; transform: none; }
-
-/* ============================================================
-   ERWEITERUNG: Vertrauen & Conversion + Werkzeuge
-   (Qualifikations-Badges, PDF-Link, Einstufungstest, Preisrechner,
-    Kundenstimmen, Referenzen, FAQ, digitale Visitenkarte, Versions-Umschalter)
-   ============================================================ */
-
-/* ---------- Qualifikations-Badges ---------- */
-.badge-row {
-  list-style: none;
-  padding: 0;
-  margin: 1.6rem 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--petrol);
-  background: linear-gradient(135deg, #fff, var(--peach-light));
-  border: 1px solid rgba(201, 162, 39, 0.4);
-  border-radius: 999px;
-  padding: 0.5rem 0.95rem;
-  box-shadow: var(--shadow-sm);
-}
-.badge svg { color: var(--gold-deep); flex: 0 0 auto; }
-
-/* ---------- PDF-Link bei den Preisen ---------- */
-.pdf-link-wrap { margin-top: 1.9rem; }
-.pdf-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--teal-dark);
-  background: #fff;
-  border: 1.5px solid rgba(46, 123, 131, 0.35);
-  border-radius: 999px;
-  padding: 0.7rem 1.3rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.2s ease;
-}
-.pdf-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--teal); color: var(--teal-dark); }
-.pdf-link svg { color: var(--orange-dark); flex: 0 0 auto; }
-
-/* ---------- Einstufungstest (Quiz) ---------- */
-.quiz {
-  max-width: 720px;
-  margin: 0 auto;
-  background: #fff;
-  border: 1px solid rgba(18, 48, 51, 0.08);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  padding: clamp(1.6rem, 4vw, 2.75rem);
-}
-.quiz-intro { text-align: center; }
-.quiz-intro p { color: var(--petrol-2); max-width: 52ch; margin-inline: auto; margin-bottom: 1.5rem; }
-
-.quiz-progress { margin-bottom: 1.6rem; }
-.quiz-progress-bar {
-  height: 8px;
-  background: var(--peach-light);
-  border-radius: 999px;
-  overflow: hidden;
-}
-.quiz-progress-bar span {
-  display: block;
-  height: 100%;
-  background: linear-gradient(90deg, var(--teal), var(--gold-deep));
-  border-radius: 999px;
-  transition: width 0.35s ease;
-}
-.quiz-count { margin: 0.6rem 0 0; font-size: 0.85rem; font-weight: 600; color: var(--teal-dark); letter-spacing: 0.02em; }
-
-.quiz-card { border: 0; padding: 0; margin: 0 0 1.5rem; }
-.quiz-frage {
-  font-family: var(--font-head);
-  font-size: clamp(1.2rem, 1rem + 0.9vw, 1.55rem);
-  color: var(--petrol);
-  line-height: 1.3;
-  margin-bottom: 1.2rem;
-  padding: 0;
-}
-.quiz-frage:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; border-radius: 6px; }
-.quiz-optionen { display: grid; gap: 0.75rem; }
-.quiz-opt {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem 1.1rem;
-  border: 1.5px solid rgba(18, 48, 51, 0.14);
-  border-radius: 14px;
-  background: var(--cream);
-  cursor: pointer;
-  font-size: 1rem;
-  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-}
-.quiz-opt:hover { border-color: var(--teal); }
-.quiz-opt input { accent-color: var(--teal); width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
-.quiz-opt.is-selected {
-  border-color: var(--teal);
-  background: linear-gradient(135deg, #fff, var(--peach-light));
-  box-shadow: 0 0 0 3px rgba(46, 123, 131, 0.14);
-}
-.quiz-opt:focus-within { outline: 3px solid var(--orange); outline-offset: 2px; }
-
-.quiz-nav { display: flex; justify-content: space-between; gap: 1rem; }
-.quiz-nav .btn { padding-block: 0.8rem; }
-.quiz-nav .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
-
-.quiz-result { text-align: center; }
-.quiz-result:focus-visible { outline: none; }
-.quiz-result-label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: var(--teal); margin-bottom: 0.4rem; }
-.quiz-niveau {
-  font-family: var(--font-head);
-  font-size: clamp(3rem, 2rem + 5vw, 4.5rem);
-  line-height: 1;
-  color: var(--teal-dark);
-  margin: 0 0 0.8rem;
-}
-.quiz-empfehlung { color: var(--petrol-2); max-width: 52ch; margin-inline: auto; margin-bottom: 1.6rem; }
-.quiz-result-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-bottom: 1.2rem; }
-.quiz-disclaimer { font-size: 0.82rem; color: var(--petrol-2); max-width: 46ch; margin-inline: auto; }
-
-/* ---------- Übersetzungs-Preisrechner ---------- */
-.rechner-card {
-  max-width: 660px;
-  margin: 0 auto;
-  background: #fff;
-  border: 1px solid rgba(18, 48, 51, 0.08);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  padding: clamp(1.6rem, 4vw, 2.5rem);
-}
-.rechner-grid { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
-@media (min-width: 620px) { .rechner-grid { grid-template-columns: 1fr 1fr; } }
-.rechner-tempo { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
-.tempo-opt {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.7rem 1.1rem;
-  border: 1.5px solid rgba(18, 48, 51, 0.14);
-  border-radius: 12px;
-  background: var(--cream);
-  cursor: pointer;
-  font-weight: 600;
-}
-.tempo-opt small { font-weight: 600; color: var(--orange-dark); }
-.tempo-opt input { accent-color: var(--teal); }
-.tempo-opt:has(input:checked) { border-color: var(--teal); background: linear-gradient(135deg, #fff, var(--peach-light)); box-shadow: 0 0 0 3px rgba(46,123,131,0.14); }
-.tempo-opt:focus-within { outline: 3px solid var(--orange); outline-offset: 2px; }
-
-.rechner-out {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 1.1rem 1.3rem;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--peach-light), #fff);
-  border: 1px solid rgba(201, 162, 39, 0.3);
-  margin-bottom: 1.4rem;
-}
-.rechner-out-label { font-weight: 600; color: var(--petrol-2); }
-.rechner-preis { font-family: var(--font-head); font-size: 2.1rem; color: var(--teal-dark); line-height: 1; }
-.rechner-hinweis {
-  display: flex; gap: 0.6rem; align-items: flex-start;
-  font-size: 0.86rem; color: var(--petrol-2);
-  margin: 1rem 0 0;
-}
-.rechner-hinweis svg { flex: 0 0 auto; color: var(--orange-dark); margin-top: 0.1rem; }
-
-/* ---------- Kundenstimmen ---------- */
-.voice-card {
-  position: relative;
-  background: #fff;
-  border: 1px solid rgba(18, 48, 51, 0.07);
-  border-radius: var(--radius);
-  padding: 1.9rem 1.7rem 1.6rem;
-  box-shadow: var(--shadow-sm);
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-.voice-quote { color: var(--gold-deep); opacity: 0.85; margin-bottom: 0.6rem; }
-.voice-card blockquote { margin: 0 0 1.2rem; color: var(--petrol); }
-.voice-card blockquote p:last-child { margin-bottom: 0; }
-.voice-card figcaption { margin-top: auto; display: flex; flex-direction: column; gap: 0.15rem; }
-.voice-name { font-weight: 700; color: var(--petrol); }
-.voice-kat { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--teal); }
-.voices-cta { text-align: center; margin-top: 2rem; }
-
-/* ---------- Referenzen („Vertraut von …") ---------- */
-.referenzen {
-  margin-top: 2.4rem;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem 1.4rem;
-}
-.referenzen-solo { margin-top: 0; }
-.referenzen-titel { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--petrol-2); }
-.referenzen-liste {
-  list-style: none; padding: 0; margin: 0;
-  display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem;
-  align-items: center; justify-content: center;
-}
-.referenzen-liste li {
-  font-weight: 600; color: var(--teal-dark);
-  background: rgba(46, 123, 131, 0.08);
-  border-radius: 999px;
-  padding: 0.35rem 0.9rem;
-  font-size: 0.9rem;
-}
-
-/* ---------- FAQ-Akkordeon ---------- */
-.faq-list { max-width: 800px; margin: 0 auto; display: grid; gap: 0.9rem; }
-.faq-item {
-  background: #fff;
-  border: 1px solid rgba(18, 48, 51, 0.09);
-  border-radius: 14px;
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-.faq-item summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 1.35rem;
-  font-family: var(--font-head);
-  font-size: 1.1rem;
-  color: var(--petrol);
-  font-weight: 700;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; border-radius: 12px; }
-.faq-chevron { flex: 0 0 auto; color: var(--teal); transition: transform 0.25s ease; }
-.faq-item[open] .faq-chevron { transform: rotate(180deg); }
-.faq-item[open] summary { color: var(--teal-dark); }
-.faq-answer { padding: 0 1.35rem 1.25rem; color: var(--petrol-2); }
-.faq-answer p:last-child { margin-bottom: 0; }
-
-/* ---------- Digitale Visitenkarte (vCard + QR) ---------- */
-.vcard {
-  margin-top: 1.9rem;
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-  background: linear-gradient(160deg, #fff, var(--peach-light));
-  border: 1px solid rgba(201, 162, 39, 0.3);
-  border-radius: var(--radius);
-  padding: 1.2rem 1.3rem;
-  box-shadow: var(--shadow-sm);
-}
-.vcard-qr { flex: 0 0 auto; width: 116px; }
-.vcard-qr svg { width: 116px; height: 116px; display: block; border-radius: 12px; }
-.vcard-text { min-width: 0; }
-.vcard-title { font-weight: 700; color: var(--petrol); margin-bottom: 0.3rem; }
-.vcard-text p { color: var(--petrol-2); font-size: 0.9rem; margin-bottom: 0.85rem; }
-.vcard-text .btn { padding: 0.7rem 1.2rem; font-size: 0.92rem; }
-@media (max-width: 420px) { .vcard { flex-direction: column; text-align: center; } }
-
-/* ---------- Versions-Umschalter (Footer) ---------- */
-.version-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.85rem;
-  color: rgba(255, 254, 248, 0.78);
-  background: rgba(255, 254, 248, 0.06);
-  border: 1px solid rgba(255, 254, 248, 0.12);
-  border-radius: 999px;
-  padding: 0.3rem 0.95rem;
-  margin-inline-end: auto;
-}
-.version-switch-label { font-weight: 600; letter-spacing: 0.02em; }
-.version-switch-sep { color: rgba(255, 254, 248, 0.4); }
-.version-opt {
-  font-weight: 700;
-  color: rgba(255, 254, 248, 0.72);
-  text-decoration: none;
-}
-a.version-opt:hover { color: var(--turquoise-2); text-decoration: underline; }
-.version-opt.is-current {
-  color: #123033;
-  background: linear-gradient(135deg, var(--turquoise-2), var(--turquoise));
-  border-radius: 999px;
-  padding: 0.2rem 0.7rem;
-}
-
-/* ============================================================
-   ARABISCHE SPRACHVERSION (/ar/)  ·  Fonts + RTL + neue Sektionen
-   ============================================================ */
-
-/* ---------- Arabische Webfonts (selbst gehostet, kein CDN) ---------- */
-@font-face {
-  font-family: 'Amiri';
-  font-style: normal; font-weight: 700; font-display: swap;
-  src: url('../assets/fonts/amiri-700.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+1EE00-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EEF0-1EEF1;
-}
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal; font-weight: 400; font-display: swap;
-  src: url('../assets/fonts/cairo-400.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+1EE00-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EEF0-1EEF1;
-}
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal; font-weight: 700; font-display: swap;
-  src: url('../assets/fonts/cairo-700.woff2') format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+1EE00-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EEF0-1EEF1;
-}
-
-/* Inline-Arabisch auf jeder Seite (z. B. Wort der Woche auf der DE-Seite) */
-[lang="ar"] { font-family: 'Cairo', var(--font-body); }
-
-/* Ganze arabische Seite: Schrift-Variablen umstellen */
-html[lang="ar"] {
-  --font-head: 'Amiri', 'Playfair Display', Georgia, serif;
-  --font-body: 'Cairo', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-}
-/* Arabisch braucht etwas mehr Zeilenhöhe (Diakritika) */
-html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { line-height: 1.34; }
-html[lang="ar"] .hero h1 { line-height: 1.22; }
-html[lang="ar"] body { line-height: 1.85; }
-
-/* Kalligrafie-Schrift (Amiri) unabhängig von der Locale */
-.wort-arabic, .wort-bsp-ar { font-family: 'Amiri', var(--font-head); }
-
-/* Arabisch: kein Buchstabenabstand / keine Grossschreibung (bricht die Schrift) */
-html[lang="ar"] .eyebrow,
-html[lang="ar"] .quiz-result-label,
-html[lang="ar"] .voice-kat,
-html[lang="ar"] .referenzen-titel,
-html[lang="ar"] .timeline-label,
-html[lang="ar"] .wort-label,
-html[lang="ar"] .package .ribbon,
-html[lang="ar"] .card-hervorgehoben::after {
-  letter-spacing: normal;
-  text-transform: none;
-}
-html[lang="ar"] .card-hervorgehoben::after { content: "الأكثر طلباً"; }
-
-/* Preise/Niveau/Telefon als LTR-Läufe halten (CHF-Zahlen, A1/B2, +41 …) */
-html[lang="ar"] .price,
-html[lang="ar"] .rechner-preis,
-html[lang="ar"] .quiz-niveau,
-html[lang="ar"] a[href^="tel:"] { direction: ltr; unicode-bidi: isolate; }
-
-/* RTL-Feinschliff für dekorative, richtungsabhängige Elemente */
-[dir="rtl"] .card::before { transform-origin: right; }
-
-/* ---------- Sprachumschalter im RTL-Kontext ---------- */
-[dir="rtl"] .lang-switch { font-family: 'Montserrat', var(--font-body); }
-
-/* ============================================================
-   Werdegang / Timeline (Lotus-/Gold-Stil)
-   ============================================================ */
-.timeline-block { margin-top: clamp(2.75rem, 6vw, 4.25rem); }
-.timeline-head { text-align: center; margin-bottom: clamp(1.6rem, 3vw, 2.2rem); }
-.timeline-title { font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2rem); margin-bottom: 0; }
-.timeline-title::after {
-  content: "";
-  display: block;
-  width: 56px; height: 3px;
-  margin: 0.75rem auto 0;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--teal), var(--gold-deep));
-}
-.timeline {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  max-width: 760px;
-}
-.timeline-item {
-  position: relative;
-  padding-inline-start: 2.6rem;
-  padding-bottom: 2.1rem;
-}
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  inset-inline-start: 7px;
-  top: 0.7rem;
-  bottom: -0.2rem;
-  width: 2px;
-  background: linear-gradient(var(--gold-deep), rgba(201, 162, 39, 0.25));
-}
-.timeline-item:last-child::before { display: none; }
-.timeline-dot {
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0.45rem;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, var(--gold-vivid), var(--gold-deep));
-  box-shadow: 0 0 0 4px rgba(231, 219, 134, 0.3);
-}
-.timeline-ort {
-  display: block;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--teal-dark);
-}
-.timeline-label {
-  display: block;
-  font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--orange-dark);
-  margin: 0.2rem 0 0.55rem;
-}
-.timeline-text { margin: 0; color: var(--petrol-2); }
-
-/* ============================================================
-   Wort der Woche
-   ============================================================ */
-.wort-card {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(160deg, #fff, var(--peach-light));
-  border: 1px solid rgba(201, 162, 39, 0.35);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  padding: clamp(2rem, 5vw, 3.25rem);
-}
-.wort-card::before {
-  content: "";
-  position: absolute; inset: 0; z-index: 0;
-  background: var(--hero-pattern) 0 0 / 60px 52px repeat;
-  opacity: 0.05;
-  -webkit-mask-image: radial-gradient(80% 80% at 50% 30%, #000 30%, transparent 100%);
-  mask-image: radial-gradient(80% 80% at 50% 30%, #000 30%, transparent 100%);
-}
-.wort-card > * { position: relative; z-index: 1; }
-.wort-arabic {
-  font-weight: 700;
-  font-size: clamp(3.4rem, 2rem + 9vw, 6rem);
-  line-height: 1.15;
-  color: var(--teal-dark);
-  margin: 0 0 0.6rem;
-  direction: rtl;
-}
-.wort-translit {
-  font-family: var(--font-head);
-  font-style: italic;
-  font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
-  color: var(--orange-dark);
-  margin: 0 0 0.5rem;
-}
-.wort-deutsch {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--petrol);
-  margin: 0 0 1.6rem;
-}
-.wort-beispiel {
-  border-top: 1px solid rgba(201, 162, 39, 0.32);
-  padding-top: 1.4rem;
-}
-.wort-label {
-  display: block;
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 0.7rem;
-}
-.wort-bsp-ar {
-  font-size: clamp(1.5rem, 1.1rem + 2vw, 2.1rem);
-  line-height: 1.7;
-  color: var(--petrol);
-  margin: 0 0 0.35rem;
-  direction: rtl;
-}
-.wort-bsp-de { font-style: italic; color: var(--petrol-2); margin: 0; }
-
-/* ============================================================
-   Kleinteile
-   ============================================================ */
-.quiz-sprachhinweis {
-  color: var(--orange-dark);
-  background: var(--peach-light);
-  border-radius: 12px;
-  padding: 0.75rem 1.05rem;
-  font-size: 0.92rem;
-  max-width: 54ch;
-  margin: 0 auto 1.5rem;
-}
-.pdf-lang { font-weight: 600; opacity: 0.75; font-size: 0.9em; }
-.footer-legal-lang { font-size: 0.8em; opacity: 0.7; }

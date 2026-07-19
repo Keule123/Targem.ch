@@ -1,0 +1,21 @@
+{
+  "eyebrow": "Mein Weg",
+  "ueberschrift": "Von Kairo über Leipzig nach Bern",
+  "stationen": [
+    {
+      "ort": "Kairo",
+      "label": "Aufgewachsen zwischen zwei Kulturen",
+      "text": "In Kairo bin ich zwischen der deutschen und der ägyptischen Kultur aufgewachsen und habe beide Sprachen von klein auf in ihrem jeweiligen Umfeld und in der Familie erlebt. An der Universität Kairo studierte ich Germanistik."
+    },
+    {
+      "ort": "Leipzig",
+      "label": "Übersetzungsdiplom & Goethe-Institut",
+      "text": "An der Universität Leipzig erwarb ich mein Übersetzungsdiplom. Ein Diplom des Goethe-Instituts gab mir die pädagogischen Grundlagen, um beide Sprachen fundiert weiterzugeben."
+    },
+    {
+      "ort": "Bern · Rüfenacht",
+      "label": "Über 30 Jahre Sprachpraxis – Targem!",
+      "text": "Heute lebe ich in Rüfenacht bei Bern. Mit über 30 Jahren Spracherfahrung übersetze und dolmetsche ich, lektoriere und unterrichte Deutsch, Arabisch und Ägyptisch-Arabisch – mit meinem eigenen Angebot Targem!."
+    }
+  ]
+}
