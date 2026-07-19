@@ -1,0 +1,16 @@
+{
+  "pakete": [
+    {
+      "titel": "6 Privatlektionen",
+      "preis_chf": 400,
+      "beschreibung": "Sie bezahlen nur fünf Kurse, einer ist gratis!",
+      "badge": "1 gratis"
+    },
+    {
+      "titel": "12 Privatlektionen",
+      "preis_chf": 800,
+      "beschreibung": "10 Kurse bezahlen Sie, 2 gehen auf's Haus!",
+      "badge": "2 gratis"
+    }
+  ]
+}

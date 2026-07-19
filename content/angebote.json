@@ -1,0 +1,31 @@
+{
+  "angebote": [
+    {
+      "titel": "Privatunterricht",
+      "untertitel": "Konversationskurse, Ferienkurse, Niveaukurse im 1 zu 1",
+      "preis_chf": 80,
+      "dauer_min": 50,
+      "ort": "Online",
+      "teilnehmer": "1 Person",
+      "hervorheben": false
+    },
+    {
+      "titel": "Lektion im Duo",
+      "untertitel": "Konversationskurse, Ferienkurse, Niveaukurse mit zwei Teilnehmer*innen",
+      "preis_chf": 100,
+      "dauer_min": 50,
+      "ort": "Online",
+      "teilnehmer": "2 Personen",
+      "hervorheben": false
+    },
+    {
+      "titel": "Lektion 3–4 Personen",
+      "untertitel": "Sprachkurse mit 3 bis 4 Teilnehmer*innen",
+      "preis_chf": 120,
+      "dauer_min": 50,
+      "ort": "Online",
+      "teilnehmer": "3–4 Personen",
+      "hervorheben": false
+    }
+  ]
+}

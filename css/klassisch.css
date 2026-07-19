@@ -677,3 +677,79 @@ p { margin: 0 0 1rem; }
 
 /* Anker-Offset für sticky Header */
 [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+
+/* ============================================================
+   Ergänzungen für das umschaltbare Design-System
+   (klassisch = bisheriges Erscheinungsbild + Umschalter)
+   ============================================================ */
+
+/* Modern-exklusive Dekoration im klassischen Design ausblenden */
+.nur-modern { display: none !important; }
+
+/* Hervorgehobene Preis-/Angebotskarte (Feld "hervorheben": true) – dezent */
+.card-hervorgehoben {
+  border-color: rgba(231, 219, 134, 0.9);
+  box-shadow: 0 0 0 1px rgba(231, 219, 134, 0.55), var(--shadow-sm);
+}
+.card-hervorgehoben::before {
+  content: "Beliebt";
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  background: var(--peach-light);
+  border: 1px solid rgba(231, 219, 134, 0.9);
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.7rem;
+}
+
+/* ---------- Design-Umschalter (im Footer) ---------- */
+.design-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 254, 248, 0.75);
+}
+.design-switch-label { font-weight: 600; }
+.design-switch-sep { opacity: 0.4; }
+.design-opt {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 254, 248, 0.7);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.design-opt:hover { color: var(--cream); }
+.design-opt[aria-pressed="true"] {
+  color: var(--petrol);
+  background: var(--turquoise);
+  border-color: var(--turquoise);
+}
+.design-switch .design-opt:focus-visible {
+  outline: 3px solid var(--turquoise);
+  outline-offset: 2px;
+}
+
+/* Footer-bottom darf den Umschalter aufnehmen */
+.footer-bottom .design-switch { margin-right: auto; }
+
+/* Mobile-Überlauf im Kontaktbereich vermeiden (Grid-Blowout, Desktop unverändert) */
+.contact-grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) {
+  .contact-grid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
+}
+.contact-info, .form-card { min-width: 0; }
+
+/* Formular-Hinweis: Text als ein fliessender Absatz neben dem Icon
+   (Span kann auf schmalen Screens schrumpfen -> kein Überlauf). */
+.form-hint span { min-width: 0; }
