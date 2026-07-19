@@ -30,7 +30,7 @@ gefahrlos rückgängig gemacht werden.
 ## Schritt 2: Eigene Domain bei GitHub eintragen
 
 1. Weiter in **Settings → Pages**: bei „Custom domain" **www.targem.ch** eintragen und speichern.
-   (Die Datei `CNAME` im Repository enthält diesen Wert bereits.)
+   (GitHub legt dabei automatisch die Datei `CNAME` im Repository an.)
 2. GitHub zeigt zunächst eine DNS-Warnung — die verschwindet nach Schritt 3.
 
 ## Schritt 3: DNS bei Hostpoint umstellen
